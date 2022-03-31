@@ -16,6 +16,7 @@ class Init {
 
     protected function get_controllers() {
         return [
+            Listings_Importer::class,
             Listings_Importer_Template_Override::class,
         ];
     }

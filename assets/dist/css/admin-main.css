@@ -100,4 +100,8 @@
   display: block;
 }
 
+.csv-wrapper form .form-content .atbdp-importer-mapping-table-wrapper .atbdp-importer-mapping-table tbody .atbdp-importer-mapping-table-name {
+  max-width: 450px;
+}
+
 /*# sourceMappingURL=admin-main.css.map*/

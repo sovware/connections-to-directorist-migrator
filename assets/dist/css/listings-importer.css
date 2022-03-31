@@ -99,6 +99,10 @@
 .directorist-tab-content.--is-active {
   display: block;
 }
+
+.csv-wrapper form .form-content .atbdp-importer-mapping-table-wrapper .atbdp-importer-mapping-table tbody .atbdp-importer-mapping-table-name {
+  max-width: 450px;
+}
 .directorist-headline-4 {
   margin: 0 0 15px 0;
   font-size: 15px;
@@ -199,6 +203,10 @@
 }
 .directorist-tab-content.--is-active {
   display: block;
+}
+
+.csv-wrapper form .form-content .atbdp-importer-mapping-table-wrapper .atbdp-importer-mapping-table tbody .atbdp-importer-mapping-table-name {
+  max-width: 450px;
 }
 
 /*# sourceMappingURL=listings-importer.css.map*/

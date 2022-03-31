@@ -5,29 +5,25 @@ namespace Directorist_Migrator\Module\Integration\Connections\Model;
 class Listings_Model {
 
     /**
-     * Get total listings
+     * Get Listings
      * 
-     * @return int total listings
+     * @param array $atts
+     * @return array Listings
      */
-    public static function get_total_listings() {
+    public static function get_listings( $atts = [] ) {
 
-        return 10;
+        $default = [
+            'status' => [ 'approved, pending' ],
+            'limit'  => 10,
+        ];
 
-    }
+        $atts = array_merge( $default, $atts );
 
-    /**
-     * Get Listings Fields
-     * 
-     * @return array Listings Fields
-     */
-    public static function get_listings() {
+        $atts = apply_filters( 'directorist_migrator_listings_query_args', $atts, DIRECTORIST_MIGRATOR_INTEGRATION_CONNECTIONS_ID );
 
-        $fields = [];
-        $fields['title'] = 'Listing Title';
-        $fields['description'] = 'Listing Description';
-        
+        $instance = Connections_Directory();
+        $results  = $instance->retrieve->entries( $atts );
 
-        return $fields;
-
+        return $results;
     }
 }

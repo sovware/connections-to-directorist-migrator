@@ -10,7 +10,7 @@
 
 			<div class="form-content">
 				<section class="atbdp-importer-mapping-table-wrapper">
-					<h3><?php printf( __( 'Total %s items selected ', 'directorist' ), $data['total_listings']); ?></h3>
+					<h3><?php printf( __( 'Total %s item(s) found ', 'directorist' ), $data['total_listings']); ?></h3>
 					<div class="directory_type_wrapper">
 						<?php if ( count( directory_types() ) > 1 ) { ?>
                             <label for="directory_type"><?php esc_html_e('Select Directory', 'directorist'); ?></label>
@@ -28,7 +28,10 @@
 					</div>
 				</section>
 			</div>
+
 			<div class="atbdp-actions">
+				<input type="hidden" class="directorist-listings-importer-config-field" name="total_post" value="<?php echo apply_filters( 'directorist_migrator_total_importing_listings', 0, $data['controller']->get_current_listing_import_source() ) ?>">
+				<input type="hidden" class="directorist-listings-importer-config-field" name="listing_import_source" value="<?php echo $data['controller']->get_current_listing_import_source() ?>">
 				<button type="submit" class="button btn-run-importer" value="<?php esc_attr_e('Run the importer', 'directorist'); ?>" name="save_step_two"><?php esc_html_e('Run the importer', 'directorist'); ?></button>
 				<?php wp_nonce_field('directorist-csv-importer'); ?>
 			</div>

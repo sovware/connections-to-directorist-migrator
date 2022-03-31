@@ -2,6 +2,7 @@
 
 namespace Directorist_Migrator\Module\Integration\Connections\Hook;
 
+use Directorist_Migrator\Module\Integration\Connections\Helper\Listings_Data_Helper;
 use Directorist_Migrator\Module\Integration\Connections\Model\Listings_Model;
 
 class Listings_Importer_Template_Override {
@@ -32,7 +33,11 @@ class Listings_Importer_Template_Override {
             return $total_listings;
         }
 
-        $total_listings = Listings_Model::get_total_listings();
+        $atts = [ 'limit' => null ];
+        $atts = apply_filters( 'directorist_migrator_total_listings_query_args', $atts, DIRECTORIST_MIGRATOR_INTEGRATION_CONNECTIONS_ID );
+
+        $listings = Listings_Model::get_listings( $atts );
+        $total_listings = count( $listings );
         
         return $total_listings;
     }
@@ -51,7 +56,17 @@ class Listings_Importer_Template_Override {
             return $listings_data_map;
         }
 
-        $listings_data_map['headers'] = Listings_Model::get_listings();
+        $atts = [ 'limit' => 1 ];
+        $atts = apply_filters( 'directorist_migrator_listings_data_map_query_args', $atts, DIRECTORIST_MIGRATOR_INTEGRATION_CONNECTIONS_ID );
+
+        $listings = Listings_Model::get_listings( $atts );
+
+        if ( empty( $listings ) ) {
+            return [];
+        }
+
+        $importable_fields = Listings_Data_Helper::get_importable_fields( $listings[0] );
+        $listings_data_map['headers'] = $importable_fields;
         
         return $listings_data_map;
     }
@@ -63,7 +78,7 @@ class Listings_Importer_Template_Override {
      * @param array $source_list
      * @return array $source_list
      */
-    public function migrator_directory_source_list( $directory_source_list ) {
+    public function migrator_directory_source_list( $directory_source_list = [] ) {
 
         $directory_source = [];
         $directory_source['value'] = DIRECTORIST_MIGRATOR_INTEGRATION_CONNECTIONS_ID; 
