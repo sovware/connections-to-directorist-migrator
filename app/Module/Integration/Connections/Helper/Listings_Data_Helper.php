@@ -10,7 +10,7 @@ class Listings_Data_Helper {
      * @param object $fields
      * @return array Fields
      */
-    public static function get_importable_fields( $all_fields = [], $prefered_only_when_has_multiple_item = true ) {
+    public static function get_importable_fields( $all_fields, $prefered_only_when_has_multiple_item = true ) {
 
         $importable_fields = [];
 
@@ -21,13 +21,16 @@ class Listings_Data_Helper {
         // Full Name
         $importable_fields[ 'full_name' ] = self::get_full_name( $all_fields );
 
+        // Categories
+        $importable_fields[ 'categories' ] = self::get_importable_categories( $all_fields->id );
+
         foreach( $all_fields as $field_key => $field_value ) {
             $field_value = directorist_migrator_maybe_json( $field_value );
 
             // Get Listing Status
             if ( 'visibility' === $field_key ) {
 
-                $status = self::get_status_fields( $field_value );
+                $status = self::get_status_fields( $field_value, $all_fields );
                 
                 if ( ! empty( $status ) ) {
                     $importable_fields[ 'listing_status' ] = $status;
@@ -98,11 +101,6 @@ class Listings_Data_Helper {
             }
             
             $importable_fields[ $field_key ] = $field_value;
-        }
-
-        // Unset ID
-        if ( isset( $importable_fields[ 'id' ] ) ) {
-            unset( $importable_fields[ 'id' ] );
         }
 
         $importable_fields = apply_filters( 'directorist_migrator_importable_fields', $importable_fields, $all_fields, DIRECTORIST_MIGRATOR_INTEGRATION_CONNECTIONS_ID );
@@ -217,10 +215,11 @@ class Listings_Data_Helper {
     /**
      * Get Status Field
      * 
-     * @param string $field
+     * @param string $field_value
+     * @param object $all_fields
      * @return string Status Field
      */
-    public static function get_status_fields( $field_value = '' ) {
+    public static function get_status_fields( $field_value = '', $all_fields = [] ) {
 
         if ( empty( $field_value ) ) {
             return '';
@@ -232,11 +231,46 @@ class Listings_Data_Helper {
             'unlisted' => 'pending',
         ] );
 
+        $status = '';
+            
         if ( array_key_exists( $field_value, $status_map ) ) {
-            return $status_map[ $field_value ];
+            $status = $status_map[ $field_value ];
         }
 
-        return '';
+        $is_approved  = ! empty( $all_fields->status ) && 'approved' === $all_fields->status;
+        $is_published = 'publish' === $status;
+
+        if ( $is_published && ! $is_approved ) {
+            $status = 'pending';
+        }
+
+        return apply_filters( 'directorist_migrator_connections_importable_listing_status', $status, $status_map, $all_fields );
+    }
+
+    /**
+     * Get importable categories
+     * 
+     * @param int $listing_id
+     * @return string Importable Categories
+     */
+    public static function get_importable_categories( $listing_id ) {
+
+        $instance = Connections_Directory();
+        $categories = $instance->retrieve->entryCategories( $listing_id );
+
+        $importable_categories = [];
+
+        if ( ! empty( $categories ) ) {
+            foreach ( $categories as $category ) {
+                $importable_categories[] = $category->name;
+            }
+        }
+
+        if ( empty( $importable_categories ) ) {
+            return '';
+        }
+
+        return implode( ',', $importable_categories );
     }
 
     /**
