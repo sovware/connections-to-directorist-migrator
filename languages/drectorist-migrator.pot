@@ -13,14 +13,14 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../app/Controller/Hook/Listings_Importer_Template_Override.php:30
+#: ../app/Controller/Hook/Listings_Importer_Template_Override.php:47
 msgid "Import Listings or Upload CSV file"
 msgstr ""
 
-#: ../app.php:54, ../app.php:59
+#: ../app.php:40, ../app.php:45
 msgid "Cheatin&#8217; huh?"
 msgstr ""
 
-#: ../view/listings-importer/step-1.php:18
+#: ../view/listings-importer/body-templates/step-1.php:7
 msgid "Upload CSV file or Import Listings"
 msgstr ""

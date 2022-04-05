@@ -32,6 +32,9 @@ class Init {
         // Define Const
         $this->define_const();
 
+        // Includes
+        $this->includes();
+
         // Register Controllers
         $controllers = $this->get_controllers();
         Helper\Serve::register_services( $controllers );
@@ -58,6 +61,18 @@ class Init {
         
         defined( 'DIRECTORIST_MIGRATOR_INTEGRATION_CONNECTIONS_ID' ) || define( 'DIRECTORIST_MIGRATOR_INTEGRATION_CONNECTIONS_ID', 'connections' );
         
+    }
+
+    /**
+     * Includes
+     * 
+     * @return void
+     */
+    protected function includes() {
+
+        $dir_path = dirname( __FILE__ ) . '/functions';
+        
+        drectorist_migrator_include_dir_files( $dir_path );
     }
 
 }

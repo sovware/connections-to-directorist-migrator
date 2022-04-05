@@ -98,8 +98,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _scss_admin_admin_style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../scss/admin/admin-style.scss */ "./assets/src/scss/admin/admin-style.scss");
 /* harmony import */ var _scss_admin_admin_style_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_scss_admin_admin_style_scss__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _global_global_main__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../global/global-main */ "./assets/src/js/global/global-main.js");
+/* harmony import */ var _module_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./module/index */ "./assets/src/js/admin/module/index.js");
 // CSS
  // JS
+
 
 
 
@@ -158,21 +160,7 @@ function Tasks() {
             } else {
               file_upload_field.setAttribute('required', true);
             }
-          } // Update Listings Import Sources Required Status
-          // const listings_import_sources = document.querySelector( '.directorist-listings-import-source' );
-          // const listings_import_sources = document.querySelector( '.directorist-listings-import-source' );
-          // const listings_import_sources = $( '.directorist-listings-import-sources' );
-          // console.log( 'log', { listings_import_sources } );
-          // if ( listings_import_sources ) {
-          //     if ( 'other' === query_var_value ) {
-          //         listings_import_sources.setAttr( 'required' ).trigger("change");
-          //         // listings_import_sources.setAttribute( 'required' );
-          //     } else {
-          //         // listings_import_sources.removeAttribute( 'required', true );
-          //         listings_import_sources.removeAttr( 'required' ).trigger("change");
-          //     }
-          // }
-
+          }
         });
       });
     }
@@ -183,6 +171,85 @@ function init() {
   var tasks = new Tasks();
   tasks.init();
 }
+
+/***/ }),
+
+/***/ "./assets/src/js/admin/module/index.js":
+/*!*********************************************!*\
+  !*** ./assets/src/js/admin/module/index.js ***!
+  \*********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _integration_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./integration/index */ "./assets/src/js/admin/module/integration/index.js");
+
+
+/***/ }),
+
+/***/ "./assets/src/js/admin/module/integration/connections/index.js":
+/*!*********************************************************************!*\
+  !*** ./assets/src/js/admin/module/integration/connections/index.js ***!
+  \*********************************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _listings_import__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./listings-import */ "./assets/src/js/admin/module/integration/connections/listings-import.js");
+/* harmony import */ var _listings_import__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_listings_import__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/***/ }),
+
+/***/ "./assets/src/js/admin/module/integration/connections/listings-import.js":
+/*!*******************************************************************************!*\
+  !*** ./assets/src/js/admin/module/integration/connections/listings-import.js ***!
+  \*******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+document.addEventListener('DOMContentLoaded', init, false);
+var $ = jQuery;
+
+function Tasks() {
+  return {
+    init: function init() {
+      this.onImportListingsFromOtherSourcesChange();
+    },
+    onImportListingsFromOtherSourcesChange: function onImportListingsFromOtherSourcesChange() {
+      $('.directorist-listing-import-source').on('change', function (e) {
+        var value = $(this).children("option:selected").val();
+
+        if ('connections' === value) {
+          $('.directorist-migrator-connections-is-preferred-only-field').removeClass('--is-hidden');
+        } else {
+          $('.directorist-migrator-connections-is-preferred-only-field').addClass('--is-hidden');
+        }
+      });
+    }
+  };
+}
+
+function init() {
+  var tasks = new Tasks();
+  tasks.init();
+}
+
+/***/ }),
+
+/***/ "./assets/src/js/admin/module/integration/index.js":
+/*!*********************************************************!*\
+  !*** ./assets/src/js/admin/module/integration/index.js ***!
+  \*********************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _connections_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./connections/index */ "./assets/src/js/admin/module/integration/connections/index.js");
+
 
 /***/ }),
 

@@ -119,6 +119,32 @@ class Listings_Importer_Template_Override {
     }
 
     /**
+     * Listings Importer Listings Source Selection Template
+     * 
+     * @param array $template_data
+     * @param bool $return
+     * 
+     * @return string $tempate
+     */
+    public function listings_importer_listings_source_selection_template( $template_data = [], $return = false ) {
+
+        $template_data['controller'] = $this;
+        $template_data['listing_source_tab_contents'] = $this->get_listings_importer_listing_source_tab_contents();
+
+        ob_start();
+
+        drectorist_migrator_get_view( 'listings-importer/listings-source-selection/listings-source-selection', $template_data, false );
+
+        $template = apply_filters( 'directorist_migrator_listings_importer_listings_source_selection_template', ob_get_clean(), $template_data );
+
+        if ( $return ) {
+            return $template;
+        }
+
+        echo $template;
+    }
+
+    /**
      * Listings Importer Listings Data Map Table Template
      * 
      * @param array $template_data
@@ -154,12 +180,39 @@ class Listings_Importer_Template_Override {
     public function listings_importer_source_navigation_item_template( $template_data = [], $return = false ) {
 
         $template_data['controller'] = $this;
+        
+        ob_start();
+        
+        drectorist_migrator_get_view( 'listings-importer/listings-source-selection/tab-navigation/nav-item', $template_data, false );
 
+        $template = apply_filters( 'directorist_migrator_listings_importer_listings_source_navigation_item_template', ob_get_clean(), $template_data );
+
+        if ( $return ) {
+            return $template;
+        }
+
+        echo $template;
+    }
+
+    /**
+     * Listings Importer Source Tab Item Template
+     * 
+     * @param array $template_data
+     * @param bool $return
+     * 
+     * @return string Tempate
+     */
+    public function listings_importer_source_tab_item_template( $template_data = [], $return = false ) {
+
+        $template_data['controller'] = $this;
+        
         ob_start();
 
-        drectorist_migrator_get_view( 'listings-importer/source-navigation/nav-item', $template_data, false );
+        $path = ( $template_data['path'] ) ? $template_data['path'] : '';
 
-        $template = apply_filters( 'directorist_migrator_listings_importer_source_navigation_item_template', ob_get_clean(), $template_data );
+        drectorist_migrator_get_view( "listings-importer/listings-source-selection/tab-contents/${path}", $template_data, false );
+
+        $template = apply_filters( 'directorist_migrator_listings_importer_listings_source_contents_item_template', ob_get_clean(), $template_data );
 
         if ( $return ) {
             return $template;
@@ -215,6 +268,31 @@ class Listings_Importer_Template_Override {
         $nav = apply_filters( 'directorist_migrator_listings_import_source_navigation', $nav, $current_listing_import_source_type );
 
         return $nav;
+    }
+
+    /**
+     * Get Listings Importer Listing Source Tab Contents
+     * 
+     * @return string Tab Contents
+     */
+    public function get_listings_importer_listing_source_tab_contents() {
+        $contents = [];
+
+        $current_listing_import_source_type = $this->get_current_listing_import_source_type();
+
+        // Item 1
+        $content_item = [];
+        $content_item['path'] = 'tab-1';
+        $content_item['active_class'] = ( 'csv-file' === $current_listing_import_source_type ) ? ' --is-active' : '';
+        $contents [] = $content_item;
+
+        // Item 2
+        $content_item = [];
+        $content_item['path'] = 'tab-2';
+        $content_item['active_class'] = ( 'other' === $current_listing_import_source_type ) ? ' --is-active' : '';
+        $contents [] = $content_item;
+
+        return $contents;
     }
 
     /**
