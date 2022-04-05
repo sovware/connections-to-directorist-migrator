@@ -129,6 +129,7 @@ class Listings_Importer_Template_Override {
     public function listings_importer_listings_source_selection_template( $template_data = [], $return = false ) {
 
         $template_data['controller'] = $this;
+        $template_data['listing_source_tab_contents'] = $this->get_listings_importer_listing_source_tab_contents();
 
         ob_start();
 
@@ -185,6 +186,33 @@ class Listings_Importer_Template_Override {
         drectorist_migrator_get_view( 'listings-importer/listings-source-selection/tab-navigation/nav-item', $template_data, false );
 
         $template = apply_filters( 'directorist_migrator_listings_importer_listings_source_navigation_item_template', ob_get_clean(), $template_data );
+
+        if ( $return ) {
+            return $template;
+        }
+
+        echo $template;
+    }
+
+    /**
+     * Listings Importer Source Tab Item Template
+     * 
+     * @param array $template_data
+     * @param bool $return
+     * 
+     * @return string Tempate
+     */
+    public function listings_importer_source_tab_item_template( $template_data = [], $return = false ) {
+
+        $template_data['controller'] = $this;
+        
+        ob_start();
+
+        $path = ( $template_data['path'] ) ? $template_data['path'] : '';
+
+        drectorist_migrator_get_view( "listings-importer/listings-source-selection/tab-contents/${path}", $template_data, false );
+
+        $template = apply_filters( 'directorist_migrator_listings_importer_listings_source_contents_item_template', ob_get_clean(), $template_data );
 
         if ( $return ) {
             return $template;
@@ -254,10 +282,14 @@ class Listings_Importer_Template_Override {
 
         // Item 1
         $content_item = [];
+        $content_item['path'] = 'tab-1';
+        $content_item['active_class'] = ( 'csv-file' === $current_listing_import_source_type ) ? ' --is-active' : '';
+        $contents [] = $content_item;
 
-        $content_item['active_class']    = ( 'csv-file' === $current_listing_import_source_type ) ? ' --is-active' : '';
-        $content_item['file']            = '<span class="fas fa-file-csv"></span>';
-
+        // Item 2
+        $content_item = [];
+        $content_item['path'] = 'tab-2';
+        $content_item['active_class'] = ( 'other' === $current_listing_import_source_type ) ? ' --is-active' : '';
         $contents [] = $content_item;
 
         return $contents;

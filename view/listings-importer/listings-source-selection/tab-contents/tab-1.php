@@ -1,4 +1,7 @@
-<section class="directorist-tab-content directorist-csv-import-tab<?php echo ( 'csv-file' === $data['current_listing_import_source_type'] ) ? ' --is-active' : ''; ?>">
+<section class="directorist-tab-content directorist-csv-import-tab<?php echo $data['active_class']; ?>">
+
+    <?php do_action( 'directorist_migrator_before_listing_source_selection_csv_import_tab_content', $data ); ?>
+
     <div class="form-table directorist-importer-options">
         <h4 for="upload">
             <?php esc_html_e( 'Choose a CSV file from your computer:', 'directorist' ); ?>
@@ -38,4 +41,6 @@
             <input type="text" name="delimiter-test" placeholder="," size="2" />
         </div>
     </div>
+
+    <?php do_action( 'directorist_migrator_after_listing_source_selection_csv_import_tab_content', $data ); ?>
 </section>

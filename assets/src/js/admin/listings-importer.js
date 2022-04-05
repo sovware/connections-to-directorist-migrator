@@ -41,24 +41,6 @@ function Tasks() {
                             file_upload_field.setAttribute( 'required', true );
                         }
                     }
-                    
-                    // Update Listings Import Sources Required Status
-                    // const listings_import_sources = document.querySelector( '.directorist-listings-import-source' );
-                    // const listings_import_sources = document.querySelector( '.directorist-listings-import-source' );
-
-                    // const listings_import_sources = $( '.directorist-listings-import-sources' );
-
-                    // console.log( 'log', { listings_import_sources } );
-
-                    // if ( listings_import_sources ) {
-                    //     if ( 'other' === query_var_value ) {
-                    //         listings_import_sources.setAttr( 'required' ).trigger("change");
-                    //         // listings_import_sources.setAttribute( 'required' );
-                    //     } else {
-                    //         // listings_import_sources.removeAttribute( 'required', true );
-                    //         listings_import_sources.removeAttr( 'required' ).trigger("change");
-                    //     }
-                    // }
                 });
             });
         },

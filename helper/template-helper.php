@@ -1,14 +1,25 @@
 <?php
 
-function drectorist_migrator_get_template( string $path = '', array $data = [], bool $extract = true, $retutn = false ) {
+/**
+ * Drectorist Migrator Get Template
+ * 
+ * @param string $path
+ * @param array $data
+ * @param bool $extract_data
+ * @param bool $retutn
+ * @param string $base_path
+ * 
+ * @return void|string Template
+ */
+function drectorist_migrator_get_template( $path = '', $data = [], $extract_data = true, $retutn = false, $base_path = DRECTORIST_MIGRATOR_TEMPLATE_PATH ) {
 
-    $file = DRECTORIST_MIGRATOR_TEMPLATE_PATH . $path . '.php';
+    $file = $base_path . $path . '.php';
 
     if ( ! file_exists( $file ) ) {
         return;
     }
 
-    if ( $extract ) {
+    if ( $extract_data ) {
         extract( $data );
     }
 
@@ -25,15 +36,26 @@ function drectorist_migrator_get_template( string $path = '', array $data = [], 
     echo $content;
 }
 
-function drectorist_migrator_get_view( string $path = '', array $data = [], bool $extract = true, $retutn = false ) {
+/**
+ * Drectorist Migrator Get View
+ * 
+ * @param string $path
+ * @param array $data
+ * @param bool $extract_data
+ * @param bool $retutn
+ * @param string $base_path
+ * 
+ * @return void|string Template
+ */
+function drectorist_migrator_get_view( $path = '', $data = [], $extract_data = true, $retutn = false, $base_path = DRECTORIST_MIGRATOR_VIEW_PATH ) {
 
-    $file = DRECTORIST_MIGRATOR_VIEW_PATH . $path . '.php';
+    $file = $base_path . $path . '.php';
 
     if ( ! file_exists( $file ) ) {
         return;
     }
 
-    if ( $extract ) {
+    if ( $extract_data ) {
         extract( $data );
     }
 
@@ -48,4 +70,32 @@ function drectorist_migrator_get_view( string $path = '', array $data = [], bool
     }
 
     echo $content;
+}
+
+/**
+ * Include all files from a given directory
+ * 
+ * @param string $dir_path
+ * @return void
+ */
+function drectorist_migrator_include_dir_files( $dir_path = '' ) {
+    $files = scandir( $dir_path );
+
+    if ( empty( $files ) ) {
+        return;
+    }
+
+    $dir_path = $dir_path . '/';
+
+    foreach( $files as $file ) {
+        if ( ! preg_match( '/(\.php)$/', $file ) ) {
+            continue;
+        }
+
+        if ( ! file_exists( $dir_path . $file ) ) {
+            continue;
+        }
+        
+        include $dir_path . $file;
+    }
 }
