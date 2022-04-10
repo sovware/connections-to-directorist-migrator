@@ -18,7 +18,7 @@
                                 <option value="">--Select--</option>
                                 <?php foreach( directory_types() as $term ) {
                                     $default = get_term_meta( $term->term_id, '_default', true ); ?>
-                                        <option <?php echo !empty( $default ) ? 'selected' : ''; ?> value="<?php echo esc_attr( $term->term_id); ?>"><?php echo esc_attr( $term->name ); ?></option>
+                                        <option <?php echo ! empty( $default ) ? 'selected' : ''; ?> value="<?php echo esc_attr( $term->term_id); ?>"><?php echo esc_attr( $term->name ); ?></option>
                                 <?php } ?>
                             </select>
 						<?php }
@@ -30,8 +30,8 @@
 			</div>
 
 			<div class="atbdp-actions">
-				<input type="hidden" class="directorist-listings-importer-config-field" name="total_post" value="<?php echo apply_filters( 'directorist_migrator_total_importing_listings', 0, $data['controller']->get_current_listing_import_source() ) ?>">
-				<input type="hidden" class="directorist-listings-importer-config-field" name="listing_import_source" value="<?php echo $data['controller']->get_current_listing_import_source() ?>">
+				<input type="hidden" class="directorist-listings-importer-config-field" name="total_post" value="<?php echo esc_attr( apply_filters( 'directorist_migrator_total_importing_listings', 0, $data['controller']->get_current_listing_import_source() ) ); ?>">
+				<input type="hidden" class="directorist-listings-importer-config-field" name="listing_import_source" value="<?php echo esc_attr( $data['controller']->get_current_listing_import_source() ); ?>">
 				<button type="submit" class="button btn-run-importer" value="<?php esc_attr_e('Run the importer', 'directorist'); ?>" name="save_step_two"><?php esc_html_e('Run the importer', 'directorist'); ?></button>
 				<?php wp_nonce_field('directorist-csv-importer'); ?>
 			</div>

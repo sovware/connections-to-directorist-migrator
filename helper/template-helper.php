@@ -33,7 +33,7 @@ function connections_to_directorist_migrator_get_template( $path = '', $data = [
         return $content;
     }
 
-    echo $content;
+    wp_kses_post( $content );
 }
 
 /**
@@ -69,7 +69,7 @@ function connections_to_directorist_migrator_get_view( $path = '', $data = [], $
         return $content;
     }
 
-    echo $content;
+    wp_kses_post( $content );
 }
 
 /**

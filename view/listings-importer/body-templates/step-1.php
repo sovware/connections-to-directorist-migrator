@@ -18,7 +18,7 @@
 			</div>
 
 			<div class="atbdp-actions">
-				<input type="hidden" class="listing-import-source-type" name="listing-import-source-type" value="<?php echo $data['controller']->get_current_listing_import_source_type(); ?>">
+				<input type="hidden" class="listing-import-source-type" name="listing-import-source-type" value="<?php echo esc_attr( $data['controller']->get_current_listing_import_source_type() ); ?>">
 				<button type="submit" class="button" name="atbdp_save_csv_step"><?php esc_html_e( 'Continue', 'directorist' ); ?></button>
 				<?php wp_nonce_field( 'directorist-csv-importer' ); ?>
 			</div>
