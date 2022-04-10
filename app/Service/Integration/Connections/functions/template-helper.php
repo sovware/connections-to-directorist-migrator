@@ -14,6 +14,5 @@ function connections_to_directorist_migrator_connetions_get_view( $path = '', $d
         return $content;
     }
 
-    echo $content;
-
+    wp_kses_post( $content );
 }

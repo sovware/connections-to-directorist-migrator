@@ -141,7 +141,7 @@ class Listings_Importer_Template_Override {
             return $template;
         }
 
-        echo $template;
+        wp_kses_post( $template );
     }
 
     /**
@@ -166,7 +166,7 @@ class Listings_Importer_Template_Override {
             return $template;
         }
 
-        echo $template;
+        wp_kses_post( $template );
     }
 
     /**
@@ -191,7 +191,7 @@ class Listings_Importer_Template_Override {
             return $template;
         }
 
-        echo $template;
+        wp_kses_post( $template );
     }
 
     /**
@@ -218,7 +218,7 @@ class Listings_Importer_Template_Override {
             return $template;
         }
 
-        echo $template;
+        wp_kses_post( $template );
     }
 
     /**

@@ -8,7 +8,7 @@
         <select class="directorist-listing-import-source" name="listing-import-source"<?php echo ( 'other' === $data['current_listing_import_source_type'] ) ? ' required' : '' ?>>
             <option value="">Select Source...</option>
             <?php foreach( $data['get_listings_importer_directory_source_list'] as $option ) {
-                echo '<option value="'. $option['value'] .'">'. $option['label'] .'</option>';
+                echo '<option value="'. esc_attr( $option['value'] ) .'">'. esc_html( $option['label'] ) .'</option>';
             } ?>
         </select>
     </div>

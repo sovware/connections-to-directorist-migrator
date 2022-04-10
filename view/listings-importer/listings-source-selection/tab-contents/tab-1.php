@@ -1,4 +1,4 @@
-<section class="directorist-tab-content directorist-csv-import-tab<?php echo $data['active_class']; ?>">
+<section class="directorist-tab-content directorist-csv-import-tab<?php echo esc_attr( $data['active_class'] ); ?>">
 
     <?php do_action( 'directorist_migrator_before_listing_source_selection_csv_import_tab_content', $data ); ?>
 
