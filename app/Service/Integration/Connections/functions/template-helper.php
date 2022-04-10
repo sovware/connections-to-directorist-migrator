@@ -1,18 +1,30 @@
 <?php
 
 /**
+ * Drectorist Migrator Connetions Get The View
+ * 
+ * @return void Content
+ */
+function connections_to_directorist_migrator_connetions_get_the_view( $path = '', $data = [], $extract = true ) {
+    
+    $base = dirname( dirname( __FILE__ ) ) . '/view/';
+
+    connections_to_directorist_migrator_get_the_view( $path, $data, $extract, $base );
+
+}
+
+/**
  * Drectorist Migrator Connetions Get View
  * 
- * @return void|string Content
+ * @return string Content
  */
-function connections_to_directorist_migrator_connetions_get_view( $path = '', $data = [], $extract = true, $retutn = false ) {
+function connections_to_directorist_migrator_connetions_get_view( $path = '', $data = [], $extract = true ) {
 
-    $base = dirname( dirname( __FILE__ ) ) . '/view/';
-    $content = connections_to_directorist_migrator_get_view( $path, $data, $extract, true, $base );
+    ob_start();
 
-    if ( $retutn ) {
-        return $content;
-    }
+    connections_to_directorist_migrator_connetions_get_the_view( $path, $data, $extract );
 
-    wp_kses_post( $content );
+    return ob_get_clean();
 }
+
+

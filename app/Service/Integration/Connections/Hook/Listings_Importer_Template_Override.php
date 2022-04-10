@@ -13,11 +13,13 @@ class Listings_Importer_Template_Override {
      * @return void
      */
     public function __construct() {
+
         add_filter( 'directorist_migrator_directory_source_list', [ $this, 'migrator_directory_source_list' ], 20, 1 );
         add_filter( 'directorist_migrator_total_importing_listings', [ $this, 'total_importing_listings' ], 20, 2 );
         add_filter( 'directorist_migrator_importing_listings_data_map', [ $this, 'importing_listings_data_map' ], 20, 2 );
         add_action( 'directorist_migrator_after_listing_source_selection_other_import_tab_content', [ $this, 'after_listing_source_selection_other_import_tab_content' ], 20, 1 );
         add_filter( 'directorist_listings_import_form_submit_redirect_params', [ $this, 'listings_import_form_submit_redirect_params' ], 20, 2 );
+
     }
 
     /**
@@ -40,7 +42,9 @@ class Listings_Importer_Template_Override {
      * 
      */
     public function get_var_is_preferred_only() {
+
         return ( ! empty( $_REQUEST['is-preferred-only'] ) ) ? '1' : '0';
+
     }
 
 
@@ -65,6 +69,7 @@ class Listings_Importer_Template_Override {
         $total_listings = count( $listings );
         
         return $total_listings;
+        
     }
 
     /**
@@ -97,6 +102,7 @@ class Listings_Importer_Template_Override {
         $listings_data_map['headers'] = $importable_fields;
         
         return $listings_data_map;
+
     }
 
 
@@ -114,6 +120,7 @@ class Listings_Importer_Template_Override {
         $directory_source_list[] = $directory_source;
 
         return $directory_source_list;
+
     }
 
     /**
@@ -123,7 +130,7 @@ class Listings_Importer_Template_Override {
      */
     public function after_listing_source_selection_other_import_tab_content( $template_data ) {
 
-        connections_to_directorist_migrator_connetions_get_view( 'form-fields/is-preferred-only-field', $template_data );
+        connections_to_directorist_migrator_connetions_get_the_view( 'form-fields/is-preferred-only-field', $template_data );
         
     }
 

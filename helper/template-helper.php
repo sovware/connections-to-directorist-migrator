@@ -6,12 +6,11 @@
  * @param string $path
  * @param array $data
  * @param bool $extract_data
- * @param bool $retutn
  * @param string $base_path
  * 
- * @return void|string Template
+ * @return void Prints Template
  */
-function connections_to_directorist_migrator_get_template( $path = '', $data = [], $extract_data = true, $retutn = false, $base_path = CONNECTIONS_TO_DIRECTORIST_MIGRATOR_TEMPLATE_PATH ) {
+function connections_to_directorist_migrator_get_the_template( $path = '', $data = [], $extract_data = true, $base_path = CONNECTIONS_TO_DIRECTORIST_MIGRATOR_TEMPLATE_PATH ) {
 
     $file = $base_path . $path . '.php';
 
@@ -22,18 +21,53 @@ function connections_to_directorist_migrator_get_template( $path = '', $data = [
     if ( $extract_data ) {
         extract( $data );
     }
-
-    ob_start();
     
     include $file;
+}
 
-    $content = ob_get_clean();
+/**
+ * Drectorist Migrator Get Template
+ * 
+ * @param string $path
+ * @param array $data
+ * @param bool $extract_data
+ * @param string $base_path
+ * 
+ * @return string Template
+ */
+function connections_to_directorist_migrator_get_template( $path = '', $data = [], $extract_data = true, $base_path = CONNECTIONS_TO_DIRECTORIST_MIGRATOR_TEMPLATE_PATH ) {
+    
+    ob_start();
+    
+    connections_to_directorist_migrator_get_the_template( $path, $data, $extract_data, $base_path );
 
-    if ( $retutn ) {
-        return $content;
+    return ob_get_clean();
+}
+
+
+/**
+ * Drectorist Migrator Get View
+ * 
+ * @param string $path
+ * @param array $data
+ * @param bool $extract_data
+ * @param string $base_path
+ * 
+ * @return void Template
+ */
+function connections_to_directorist_migrator_get_the_view( $path = '', $data = [], $extract_data = true, $base_path = CONNECTIONS_TO_DIRECTORIST_MIGRATOR_VIEW_PATH ) {
+
+    $file = $base_path . $path . '.php';
+
+    if ( ! file_exists( $file ) ) {
+        return 'jshds';
     }
 
-    wp_kses_post( $content );
+    if ( $extract_data ) {
+        extract( $data );
+    }
+    
+    include $file;
 }
 
 /**
@@ -42,35 +76,19 @@ function connections_to_directorist_migrator_get_template( $path = '', $data = [
  * @param string $path
  * @param array $data
  * @param bool $extract_data
- * @param bool $retutn
  * @param string $base_path
  * 
  * @return void|string Template
  */
-function connections_to_directorist_migrator_get_view( $path = '', $data = [], $extract_data = true, $retutn = false, $base_path = CONNECTIONS_TO_DIRECTORIST_MIGRATOR_VIEW_PATH ) {
-
-    $file = $base_path . $path . '.php';
-
-    if ( ! file_exists( $file ) ) {
-        return;
-    }
-
-    if ( $extract_data ) {
-        extract( $data );
-    }
+function connections_to_directorist_migrator_get_view( $path = '', $data = [], $extract_data = true, $base_path = CONNECTIONS_TO_DIRECTORIST_MIGRATOR_VIEW_PATH ) {
 
     ob_start();
     
-    include $file;
+    connections_to_directorist_migrator_get_the_view( $path, $data, $extract_data, $base_path );
 
-    $content = ob_get_clean();
-
-    if ( $retutn ) {
-        return $content;
-    }
-
-    wp_kses_post( $content );
+    return ob_get_clean();
 }
+
 
 /**
  * Include all files from a given directory

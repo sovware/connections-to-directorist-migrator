@@ -10,10 +10,12 @@ class Listings_Importer_Template_Override {
      * @return void
      */
     public function __construct() {
+
         add_filter( 'directorist_listings_importer_header_nav_menu', [ $this, 'listings_importer_header_nav_menu' ], 20, 2 );
         add_filter( 'directorist_listings_importer_body_template', [ $this, 'listings_importer_body_template_step_1' ], 20, 2 );
         add_filter( 'directorist_listings_importer_body_template', [ $this, 'listings_importer_body_template_step_2' ], 20, 2 );
         add_filter( 'directorist_listings_import_form_submit_redirect_params', [ $this, 'listings_import_form_submit_redirect_params' ], 20, 2 );
+        
     }
 
     /**
@@ -71,7 +73,7 @@ class Listings_Importer_Template_Override {
         $template_data['listing_import_source_navigation'] = $this->get_listings_importer_source_navigation();
         $template_data['get_listings_importer_directory_source_list'] = $this->get_listings_importer_directory_source_list();
 
-        return connections_to_directorist_migrator_get_view( 'listings-importer/body-templates/step-1', $template_data, false, true );
+        return connections_to_directorist_migrator_get_view( 'listings-importer/body-templates/step-1', $template_data, false );
     }
 
     /**
@@ -115,7 +117,7 @@ class Listings_Importer_Template_Override {
         $template_data['total_listings']    = $total_listings;
         $template_data['listings_data_map'] = $listings_data_map;
 
-        return connections_to_directorist_migrator_get_view( 'listings-importer/body-templates/step-2', $template_data, false, true );
+        return connections_to_directorist_migrator_get_view( 'listings-importer/body-templates/step-2', $template_data, false );
     }
 
     /**
@@ -126,22 +128,13 @@ class Listings_Importer_Template_Override {
      * 
      * @return string $tempate
      */
-    public function listings_importer_listings_source_selection_template( $template_data = [], $return = false ) {
+    public function listings_importer_listings_source_selection_template( $template_data = [] ) {
 
         $template_data['controller'] = $this;
         $template_data['listing_source_tab_contents'] = $this->get_listings_importer_listing_source_tab_contents();
 
-        ob_start();
+        connections_to_directorist_migrator_get_the_view( 'listings-importer/listings-source-selection/listings-source-selection', $template_data, false );
 
-        connections_to_directorist_migrator_get_view( 'listings-importer/listings-source-selection/listings-source-selection', $template_data, false );
-
-        $template = apply_filters( 'directorist_migrator_listings_importer_listings_source_selection_template', ob_get_clean(), $template_data );
-
-        if ( $return ) {
-            return $template;
-        }
-
-        wp_kses_post( $template );
     }
 
     /**
@@ -152,21 +145,12 @@ class Listings_Importer_Template_Override {
      * 
      * @return string $tempate
      */
-    public function listings_importer_listings_data_map_table_template( $template_data = [], $return = false ) {
+    public function listings_importer_listings_data_map_table_template( $template_data = [] ) {
 
         $template_data['controller'] = $this;
 
-        ob_start();
+        connections_to_directorist_migrator_get_the_view( 'listings-importer/tables/listings-data-map-table', $template_data, false );
 
-        connections_to_directorist_migrator_get_view( 'listings-importer/tables/listings-data-map-table', $template_data, false );
-
-        $template = apply_filters( 'directorist_migrator_listings_importer_listings_data_map_table_template', ob_get_clean(), $template_data );
-
-        if ( $return ) {
-            return $template;
-        }
-
-        wp_kses_post( $template );
     }
 
     /**
@@ -177,21 +161,12 @@ class Listings_Importer_Template_Override {
      * 
      * @return string $tempate
      */
-    public function listings_importer_source_navigation_item_template( $template_data = [], $return = false ) {
+    public function listings_importer_source_navigation_item_template( $template_data = [] ) {
 
         $template_data['controller'] = $this;
         
-        ob_start();
-        
-        connections_to_directorist_migrator_get_view( 'listings-importer/listings-source-selection/tab-navigation/nav-item', $template_data, false );
+        connections_to_directorist_migrator_get_the_view( 'listings-importer/listings-source-selection/tab-navigation/nav-item', $template_data, false );
 
-        $template = apply_filters( 'directorist_migrator_listings_importer_listings_source_navigation_item_template', ob_get_clean(), $template_data );
-
-        if ( $return ) {
-            return $template;
-        }
-
-        wp_kses_post( $template );
     }
 
     /**
@@ -202,23 +177,14 @@ class Listings_Importer_Template_Override {
      * 
      * @return string Tempate
      */
-    public function listings_importer_source_tab_item_template( $template_data = [], $return = false ) {
+    public function listings_importer_source_tab_item_template( $template_data = [] ) {
 
         $template_data['controller'] = $this;
-        
-        ob_start();
 
         $path = ( $template_data['path'] ) ? $template_data['path'] : '';
 
-        connections_to_directorist_migrator_get_view( "listings-importer/listings-source-selection/tab-contents/${path}", $template_data, false );
+        connections_to_directorist_migrator_get_the_view( "listings-importer/listings-source-selection/tab-contents/${path}", $template_data, false );
 
-        $template = apply_filters( 'directorist_migrator_listings_importer_listings_source_contents_item_template', ob_get_clean(), $template_data );
-
-        if ( $return ) {
-            return $template;
-        }
-
-        wp_kses_post( $template );
     }
 
     /**
