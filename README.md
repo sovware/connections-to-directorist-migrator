@@ -41,6 +41,5 @@ That’s it! The migrator will get to work moving the listings data.
 
 ## Changelog
 
-= 0.1.0 - April 7, 2022 =
-
-* Release
+- 0.1.0 - April 7, 2022
+    - Release
