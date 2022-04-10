@@ -42,7 +42,6 @@ const prodConfig = {
               { source: './assets', destination: './__build/drectorist-migrator/drectorist-migrator/assets' },
               { source: './helper', destination: './__build/drectorist-migrator/drectorist-migrator/helper' },
               { source: './languages', destination: './__build/drectorist-migrator/drectorist-migrator/languages' },
-              { source: './template', destination: './__build/drectorist-migrator/drectorist-migrator/template' },
               { source: './vendor', destination: './__build/drectorist-migrator/drectorist-migrator/vendor' },
               { source: './view', destination: './__build/drectorist-migrator/drectorist-migrator/view' },
               { source: './*.php', destination: './__build/drectorist-migrator/drectorist-migrator' },
