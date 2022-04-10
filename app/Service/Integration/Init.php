@@ -1,8 +1,8 @@
 <?php
 
-namespace Directorist_Migrator\Module\Integration;
+namespace Connections_To_Directorist_Migrator\Service\Integration;
 
-use Directorist_Migrator\Helper;
+use Connections_To_Directorist_Migrator\Helper;
 
 class Init {
     

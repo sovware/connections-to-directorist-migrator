@@ -1,8 +1,8 @@
 const wpPot = require('wp-pot');
  
 wpPot({
-  destFile: './languages/drectorist-migrator.pot',
-  domain: 'drectorist-migrator',
+  destFile: './languages/connections-to-directorist-migrator.pot',
+  domain: 'connections-to-directorist-migrator',
   package: 'Directorist Migrator',
   src: './**/*.php'
 });

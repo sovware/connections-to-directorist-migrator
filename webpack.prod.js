@@ -38,25 +38,26 @@ const prodConfig = {
         onEnd: [
           {
             copy: [
-              { source: './app', destination: './__build/drectorist-migrator/drectorist-migrator/app' },
-              { source: './assets', destination: './__build/drectorist-migrator/drectorist-migrator/assets' },
-              { source: './helper', destination: './__build/drectorist-migrator/drectorist-migrator/helper' },
-              { source: './languages', destination: './__build/drectorist-migrator/drectorist-migrator/languages' },
-              { source: './vendor', destination: './__build/drectorist-migrator/drectorist-migrator/vendor' },
-              { source: './view', destination: './__build/drectorist-migrator/drectorist-migrator/view' },
-              { source: './*.php', destination: './__build/drectorist-migrator/drectorist-migrator' },
+              { source: './app', destination: './__build/connections-to-directorist-migrator/connections-to-directorist-migrator/app' },
+              { source: './assets', destination: './__build/connections-to-directorist-migrator/connections-to-directorist-migrator/assets' },
+              { source: './helper', destination: './__build/connections-to-directorist-migrator/connections-to-directorist-migrator/helper' },
+              { source: './languages', destination: './__build/connections-to-directorist-migrator/connections-to-directorist-migrator/languages' },
+              { source: './vendor', destination: './__build/connections-to-directorist-migrator/connections-to-directorist-migrator/vendor' },
+              { source: './view', destination: './__build/connections-to-directorist-migrator/connections-to-directorist-migrator/view' },
+              { source: './*.php', destination: './__build/connections-to-directorist-migrator/connections-to-directorist-migrator' },
+              { source: './readme.txt', destination: './__build/connections-to-directorist-migrator/connections-to-directorist-migrator' },
             ],
           },
           {
-            delete: ['./__build/drectorist-migrator/drectorist-migrator/assets/src'],
+            delete: ['./__build/connections-to-directorist-migrator/connections-to-directorist-migrator/assets/src'],
           },
           {
             archive: [
-              { source: './__build/drectorist-migrator', destination: './__build/drectorist-migrator.zip' },
+              { source: './__build/connections-to-directorist-migrator', destination: './__build/connections-to-directorist-migrator.zip' },
             ],
           },
           {
-            delete: ['./__build/drectorist-migrator'],
+            delete: ['./__build/connections-to-directorist-migrator'],
           },
         ],
       },

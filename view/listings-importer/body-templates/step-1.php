@@ -4,7 +4,7 @@
 	<div class="csv-center">
 		<form class="atbdp-progress-form-content directorist-importer" id="atbdp_csv_step_one" enctype="multipart/form-data" method="POST">
 			<header>
-				<h2><?php esc_html_e( 'Upload CSV file or Import Listings', 'drectorist-migrator' ); ?></h2>
+				<h2><?php esc_html_e( 'Upload CSV file or Import Listings', 'connections-to-directorist-migrator' ); ?></h2>
 				<p>
 					<?php esc_html_e( 'This tool allows you to import listing data to your directory from a CSV file.', 'drectorist' ); ?>
 					<?php esc_html_e( 'We strongly recommend reading our CSV import ', 'directorist' ); ?>

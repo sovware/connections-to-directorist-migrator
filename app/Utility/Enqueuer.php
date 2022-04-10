@@ -1,6 +1,6 @@
 <?php
 
-namespace Directorist_Migrator\Utility;
+namespace Connections_To_Directorist_Migrator\Utility;
 
 abstract class Enqueuer {
 
@@ -21,7 +21,7 @@ abstract class Enqueuer {
 		foreach( $args['scripts'] as $handle => $script_args ) {
 			$default = [
 				'file_name' => $handle,
-				'base_path' => DRECTORIST_MIGRATOR_CSS_PATH,
+				'base_path' => CONNECTIONS_TO_DIRECTORIST_MIGRATOR_CSS_PATH,
 				'deps'      => [],
 				'ver'       => $this->script_version,
 				'media'     => 'all',
@@ -72,7 +72,7 @@ abstract class Enqueuer {
 		foreach( $args['scripts'] as $handle => $script_args ) {
 			$default = [
 				'file_name' => $handle,
-				'base_path' => DRECTORIST_MIGRATOR_JS_PATH,
+				'base_path' => CONNECTIONS_TO_DIRECTORIST_MIGRATOR_JS_PATH,
 				'link'      => '',
 				'deps'      => [],
 				'ver'       => $this->script_version,

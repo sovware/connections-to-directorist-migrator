@@ -1,9 +1,9 @@
 <?php
 
-namespace Directorist_Migrator\Module\Integration\Connections\Hook;
+namespace Connections_To_Directorist_Migrator\Service\Integration\Connections\Hook;
 
-use Directorist_Migrator\Module\Integration\Connections\Helper\Listings_Data_Helper;
-use Directorist_Migrator\Module\Integration\Connections\Model\Listings_Model;
+use Connections_To_Directorist_Migrator\Service\Integration\Connections\Helper\Listings_Data_Helper;
+use Connections_To_Directorist_Migrator\Service\Integration\Connections\Model\Listings_Model;
 
 class Listings_Importer {
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Directorist_Migrator\Controller\Hook;
+namespace Connections_To_Directorist_Migrator\Controller\Hook;
 
 class Listings_Importer_Template_Override {
 
@@ -44,7 +44,7 @@ class Listings_Importer_Template_Override {
             return $nav_menu;
         }
 
-        $nav_menu[ 0 ][ 'label' ] = __( 'Import Listings or Upload CSV file', 'drectorist-migrator' );
+        $nav_menu[ 0 ][ 'label' ] = __( 'Import Listings or Upload CSV file', 'connections-to-directorist-migrator' );
 
         return $nav_menu;
     }
@@ -71,7 +71,7 @@ class Listings_Importer_Template_Override {
         $template_data['listing_import_source_navigation'] = $this->get_listings_importer_source_navigation();
         $template_data['get_listings_importer_directory_source_list'] = $this->get_listings_importer_directory_source_list();
 
-        return drectorist_migrator_get_view( 'listings-importer/body-templates/step-1', $template_data, false, true );
+        return connections_to_directorist_migrator_get_view( 'listings-importer/body-templates/step-1', $template_data, false, true );
     }
 
     /**
@@ -115,7 +115,7 @@ class Listings_Importer_Template_Override {
         $template_data['total_listings']    = $total_listings;
         $template_data['listings_data_map'] = $listings_data_map;
 
-        return drectorist_migrator_get_view( 'listings-importer/body-templates/step-2', $template_data, false, true );
+        return connections_to_directorist_migrator_get_view( 'listings-importer/body-templates/step-2', $template_data, false, true );
     }
 
     /**
@@ -133,7 +133,7 @@ class Listings_Importer_Template_Override {
 
         ob_start();
 
-        drectorist_migrator_get_view( 'listings-importer/listings-source-selection/listings-source-selection', $template_data, false );
+        connections_to_directorist_migrator_get_view( 'listings-importer/listings-source-selection/listings-source-selection', $template_data, false );
 
         $template = apply_filters( 'directorist_migrator_listings_importer_listings_source_selection_template', ob_get_clean(), $template_data );
 
@@ -158,7 +158,7 @@ class Listings_Importer_Template_Override {
 
         ob_start();
 
-        drectorist_migrator_get_view( 'listings-importer/tables/listings-data-map-table', $template_data, false );
+        connections_to_directorist_migrator_get_view( 'listings-importer/tables/listings-data-map-table', $template_data, false );
 
         $template = apply_filters( 'directorist_migrator_listings_importer_listings_data_map_table_template', ob_get_clean(), $template_data );
 
@@ -183,7 +183,7 @@ class Listings_Importer_Template_Override {
         
         ob_start();
         
-        drectorist_migrator_get_view( 'listings-importer/listings-source-selection/tab-navigation/nav-item', $template_data, false );
+        connections_to_directorist_migrator_get_view( 'listings-importer/listings-source-selection/tab-navigation/nav-item', $template_data, false );
 
         $template = apply_filters( 'directorist_migrator_listings_importer_listings_source_navigation_item_template', ob_get_clean(), $template_data );
 
@@ -210,7 +210,7 @@ class Listings_Importer_Template_Override {
 
         $path = ( $template_data['path'] ) ? $template_data['path'] : '';
 
-        drectorist_migrator_get_view( "listings-importer/listings-source-selection/tab-contents/${path}", $template_data, false );
+        connections_to_directorist_migrator_get_view( "listings-importer/listings-source-selection/tab-contents/${path}", $template_data, false );
 
         $template = apply_filters( 'directorist_migrator_listings_importer_listings_source_contents_item_template', ob_get_clean(), $template_data );
 

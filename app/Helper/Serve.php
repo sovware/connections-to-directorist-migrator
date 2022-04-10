@@ -1,6 +1,6 @@
 <?php
 
-namespace Directorist_Migrator\Helper;
+namespace Connections_To_Directorist_Migrator\Helper;
 
 class Serve {
 

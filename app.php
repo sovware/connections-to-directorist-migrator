@@ -1,10 +1,10 @@
 <?php
 
-use Directorist_Migrator\Controller;
-use Directorist_Migrator\Module;
-use Directorist_Migrator\Helper;
+use Connections_To_Directorist_Migrator\Controller;
+use Connections_To_Directorist_Migrator\Service;
+use Connections_To_Directorist_Migrator\Helper;
 
-final class Directorist_Migrator {
+final class Connections_To_Directorist_Migrator {
 
     private static $instance;
 
@@ -18,7 +18,7 @@ final class Directorist_Migrator {
 
     public static function get_instance() {
         if ( self::$instance === null ) {
-            self::$instance = new Directorist_Migrator();
+            self::$instance = new Connections_To_Directorist_Migrator();
         }
 
         return self::$instance;
@@ -27,7 +27,7 @@ final class Directorist_Migrator {
     protected function get_controllers() {
         return [
             Controller\Init::class,
-            Module\Init::class,
+            Service\Init::class,
         ];
     }
 
@@ -37,12 +37,12 @@ final class Directorist_Migrator {
 
     public function __clone() {
 		// Cloning instances of the class is forbidden.
-		_doing_it_wrong( __FUNCTION__, __('Cheatin&#8217; huh?', 'drectorist-migrator'), '1.0' );
+		_doing_it_wrong( __FUNCTION__, __('Cheatin&#8217; huh?', 'connections-to-directorist-migrator'), '1.0' );
 	}
 
 	public function __wakeup() {
 		// Unserializing instances of the class is forbidden.
-		_doing_it_wrong( __FUNCTION__, __('Cheatin&#8217; huh?', 'drectorist-migrator'), '1.0' );
+		_doing_it_wrong( __FUNCTION__, __('Cheatin&#8217; huh?', 'connections-to-directorist-migrator'), '1.0' );
 	}
 
 }

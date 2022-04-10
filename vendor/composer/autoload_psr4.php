@@ -6,5 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Directorist_Migrator\\' => array($baseDir . '/app'),
+    'Connections_To_Directorist_Migrator\\' => array($baseDir . '/app'),
 );

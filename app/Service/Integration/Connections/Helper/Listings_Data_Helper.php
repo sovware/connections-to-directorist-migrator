@@ -1,6 +1,6 @@
 <?php
 
-namespace Directorist_Migrator\Module\Integration\Connections\Helper;
+namespace Connections_To_Directorist_Migrator\Service\Integration\Connections\Helper;
 
 class Listings_Data_Helper {
 

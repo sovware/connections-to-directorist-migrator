@@ -1,8 +1,8 @@
 <?php
 
-namespace Directorist_Migrator\Controller\Asset;
+namespace Connections_To_Directorist_Migrator\Controller\Asset;
 
-use Directorist_Migrator\Helper;
+use Connections_To_Directorist_Migrator\Helper;
 
 class Init {
 	

@@ -1,9 +1,9 @@
 <?php
 
-namespace Directorist_Migrator\Module\Integration\Connections;
+namespace Connections_To_Directorist_Migrator\Service\Integration\Connections;
 
-use Directorist_Migrator\Helper;
-use Directorist_Migrator\Module\Integration\Connections;
+use Connections_To_Directorist_Migrator\Helper;
+use Connections_To_Directorist_Migrator\Service\Integration\Connections;
 
 class Init {
     
@@ -72,7 +72,7 @@ class Init {
 
         $dir_path = dirname( __FILE__ ) . '/functions';
         
-        drectorist_migrator_include_dir_files( $dir_path );
+        connections_to_directorist_migrator_include_dir_files( $dir_path );
     }
 
 }

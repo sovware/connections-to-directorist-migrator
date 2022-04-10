@@ -1,5 +1,5 @@
 {
-  "name": "drectorist-migrator",
+  "name": "connections-to-directorist-migrator",
   "version": "1.0.0",
   "description": "",
   "main": "pot.js",
@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/syedgalib/drectorist-migrator.git"
+    "url": "git+https://github.com/syedgalib/connections-to-directorist-migrator.git"
   },
   "keywords": [],
   "author": "syedgalib",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/syedgalib/drectorist-migrator/issues"
+    "url": "https://github.com/syedgalib/connections-to-directorist-migrator/issues"
   },
-  "homepage": "https://github.com/syedgalib/drectorist-migrator#readme",
+  "homepage": "https://github.com/syedgalib/connections-to-directorist-migrator#readme",
   "dependencies": {
     "node-sass": "^4.14.1",
     "vue": "^2.6.11",

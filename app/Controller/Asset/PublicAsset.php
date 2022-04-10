@@ -1,6 +1,6 @@
 <?php
 
-namespace Directorist_Migrator\Controller\Asset;
+namespace Connections_To_Directorist_Migrator\Controller\Asset;
 
 class PublicAsset extends AssetEnqueuer {
 	
@@ -31,17 +31,17 @@ class PublicAsset extends AssetEnqueuer {
 	public function add_css_scripts() {
 		$scripts = [];
 
-		// $scripts['drectorist-migrator-public-main-style'] = [
+		// $scripts['connections-to-directorist-migrator-public-main-style'] = [
 		// 	'file_name' => 'public-main',
-		// 	'base_path' => DRECTORIST_MIGRATOR_CSS_PATH,
+		// 	'base_path' => CONNECTIONS_TO_DIRECTORIST_MIGRATOR_CSS_PATH,
 		// 	'deps'      => [],
 		// 	'ver'       => $this->script_version,
 		// 	'group'     => 'public',
 		// ];
 
-		$scripts['drectorist-migrator-public-main-style'] = [
+		$scripts['connections-to-directorist-migrator-public-main-style'] = [
 			'file_name' => 'public-main',
-			'base_path' => DRECTORIST_MIGRATOR_CSS_PATH,
+			'base_path' => CONNECTIONS_TO_DIRECTORIST_MIGRATOR_CSS_PATH,
 			'deps'      => [],
 			'ver'       => $this->script_version,
 			'group'     => 'public',
@@ -59,17 +59,17 @@ class PublicAsset extends AssetEnqueuer {
 	public function add_js_scripts() {
 		$scripts = [];
 
-		// $scripts['drectorist-migrator-public-script'] = [
+		// $scripts['connections-to-directorist-migrator-public-script'] = [
 		// 	'file_name'     => 'public-main',
-		// 	'base_path'     => DRECTORIST_MIGRATOR_JS_PATH,
+		// 	'base_path'     => CONNECTIONS_TO_DIRECTORIST_MIGRATOR_JS_PATH,
 		// 	'deps'          => '',
 		// 	'ver'           => $this->script_version,
 		// 	'group'         => 'public',
 		// ];
 
-		$scripts['drectorist-migrator-public-script'] = [
+		$scripts['connections-to-directorist-migrator-public-script'] = [
 			'file_name'     => 'public-main',
-			'base_path'     => DRECTORIST_MIGRATOR_JS_PATH,
+			'base_path'     => CONNECTIONS_TO_DIRECTORIST_MIGRATOR_JS_PATH,
 			'deps'          => '',
 			'ver'           => $this->script_version,
 			'group'         => 'public',

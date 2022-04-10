@@ -1,6 +1,6 @@
 <?php
 
-namespace Directorist_Migrator\Module\Integration\Connections\Model;
+namespace Connections_To_Directorist_Migrator\Service\Integration\Connections\Model;
 
 class Listings_Model {
 
@@ -23,7 +23,7 @@ class Listings_Model {
 
         $instance = Connections_Directory();
         $results  = $instance->retrieve->entries( $atts );
-
+        
         return $results;
     }
 }

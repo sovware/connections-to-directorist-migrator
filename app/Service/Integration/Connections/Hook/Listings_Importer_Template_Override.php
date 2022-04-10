@@ -1,9 +1,9 @@
 <?php
 
-namespace Directorist_Migrator\Module\Integration\Connections\Hook;
+namespace Connections_To_Directorist_Migrator\Service\Integration\Connections\Hook;
 
-use Directorist_Migrator\Module\Integration\Connections\Helper\Listings_Data_Helper;
-use Directorist_Migrator\Module\Integration\Connections\Model\Listings_Model;
+use Connections_To_Directorist_Migrator\Service\Integration\Connections\Helper\Listings_Data_Helper;
+use Connections_To_Directorist_Migrator\Service\Integration\Connections\Model\Listings_Model;
 
 class Listings_Importer_Template_Override {
 
@@ -123,7 +123,7 @@ class Listings_Importer_Template_Override {
      */
     public function after_listing_source_selection_other_import_tab_content( $template_data ) {
 
-        drectorist_migrator_connetions_get_view( 'form-fields/is-preferred-only-field', $template_data );
+        connections_to_directorist_migrator_connetions_get_view( 'form-fields/is-preferred-only-field', $template_data );
         
     }
 

@@ -7,19 +7,19 @@ namespace Composer\Autoload;
 class ComposerStaticInit98ae8520e386a00622a1c03d5878aca0
 {
     public static $files = array (
-        '8c94deef02f3c30c8943ab303017b5e5' => __DIR__ . '/../..' . '/helper/const.php',
-        '4da388b8a418c6f0168b054b994cba62' => __DIR__ . '/../..' . '/helper/functions.php',
+        'f0e7aa27aaacc78aae683247712c1680' => __DIR__ . '/../..' . '/helper/const.php',
+        'c0fd3ed02fb1efc3c90f0c77a4affa9a' => __DIR__ . '/../..' . '/helper/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
-        'D' => 
+        'C' => 
         array (
-            'Directorist_Migrator\\' => 21,
+            'Connections_To_Directorist_Migrator\\' => 36,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Directorist_Migrator\\' => 
+        'Connections_To_Directorist_Migrator\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
         ),

@@ -11,7 +11,7 @@
  * 
  * @return void|string Template
  */
-function drectorist_migrator_get_template( $path = '', $data = [], $extract_data = true, $retutn = false, $base_path = DRECTORIST_MIGRATOR_TEMPLATE_PATH ) {
+function connections_to_directorist_migrator_get_template( $path = '', $data = [], $extract_data = true, $retutn = false, $base_path = CONNECTIONS_TO_DIRECTORIST_MIGRATOR_TEMPLATE_PATH ) {
 
     $file = $base_path . $path . '.php';
 
@@ -47,7 +47,7 @@ function drectorist_migrator_get_template( $path = '', $data = [], $extract_data
  * 
  * @return void|string Template
  */
-function drectorist_migrator_get_view( $path = '', $data = [], $extract_data = true, $retutn = false, $base_path = DRECTORIST_MIGRATOR_VIEW_PATH ) {
+function connections_to_directorist_migrator_get_view( $path = '', $data = [], $extract_data = true, $retutn = false, $base_path = CONNECTIONS_TO_DIRECTORIST_MIGRATOR_VIEW_PATH ) {
 
     $file = $base_path . $path . '.php';
 
@@ -78,7 +78,7 @@ function drectorist_migrator_get_view( $path = '', $data = [], $extract_data = t
  * @param string $dir_path
  * @return void
  */
-function drectorist_migrator_include_dir_files( $dir_path = '' ) {
+function connections_to_directorist_migrator_include_dir_files( $dir_path = '' ) {
     $files = scandir( $dir_path );
 
     if ( empty( $files ) ) {

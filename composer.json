@@ -1,9 +1,9 @@
 {
-    "name": "drectorist-migrator/drectorist-migrator",
+    "name": "connections-to-directorist-migrator/connections-to-directorist-migrator",
     "type": "project",
     "autoload": {
         "psr-4": {
-            "Directorist_Migrator\\": "app/"
+            "Connections_To_Directorist_Migrator\\": "app/"
         },
         "files": [ 
             "helper/const.php", 
@@ -12,8 +12,8 @@
     },
     "authors": [
         {
-            "name": "Syed Galib Ahmed",
-            "email": "syedgalibahmed@gmail.com"
+            "name": "wpWax",
+            "email": "contact@wpwax.com"
         }
     ],
     "require": {}

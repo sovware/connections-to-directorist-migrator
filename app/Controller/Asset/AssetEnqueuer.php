@@ -1,8 +1,8 @@
 <?php
 
-namespace Directorist_Migrator\Controller\Asset;
+namespace Connections_To_Directorist_Migrator\Controller\Asset;
 
-use Directorist_Migrator\Utility\Enqueuer;
+use Connections_To_Directorist_Migrator\Utility\Enqueuer;
 
 abstract class AssetEnqueuer extends Enqueuer {
 
@@ -49,7 +49,7 @@ abstract class AssetEnqueuer extends Enqueuer {
 	 * @return void
 	 */
 	public function setup_load_min_files() {
-		$this->load_min = apply_filters( 'DRECTORIST_MIGRATOR_load_min_files',  DRECTORIST_MIGRATOR_LOAD_MIN_FILES );
+		$this->load_min = apply_filters( 'CONNECTIONS_TO_DIRECTORIST_MIGRATOR_load_min_files',  CONNECTIONS_TO_DIRECTORIST_MIGRATOR_LOAD_MIN_FILES );
 	}
 
 	/**
@@ -58,8 +58,8 @@ abstract class AssetEnqueuer extends Enqueuer {
 	 * @return void
 	 */
 	public function setup_script_version() {
-		$script_version = ( $this->load_min ) ? DRECTORIST_MIGRATOR_SCRIPT_VERSION : md5( time() );
-		$this->script_version = apply_filters( 'DRECTORIST_MIGRATOR_script_version', $script_version );
+		$script_version = ( $this->load_min ) ? CONNECTIONS_TO_DIRECTORIST_MIGRATOR_SCRIPT_VERSION : md5( time() );
+		$this->script_version = apply_filters( 'CONNECTIONS_TO_DIRECTORIST_MIGRATOR_script_version', $script_version );
 	}
 
 	/**
@@ -68,7 +68,7 @@ abstract class AssetEnqueuer extends Enqueuer {
 	 * @return void
 	 */
 	public function apply_hook_to_scripts() {
-		$this->css_scripts = apply_filters( 'DRECTORIST_MIGRATOR_css_scripts', $this->css_scripts );
-		$this->js_scripts = apply_filters( 'DRECTORIST_MIGRATOR_js_scripts', $this->js_scripts );
+		$this->css_scripts = apply_filters( 'CONNECTIONS_TO_DIRECTORIST_MIGRATOR_css_scripts', $this->css_scripts );
+		$this->js_scripts = apply_filters( 'CONNECTIONS_TO_DIRECTORIST_MIGRATOR_js_scripts', $this->js_scripts );
 	}
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Directorist_Migrator\Controller\Asset;
+namespace Connections_To_Directorist_Migrator\Controller\Asset;
 
 class AdminAsset extends AssetEnqueuer {
 	
@@ -31,25 +31,25 @@ class AdminAsset extends AssetEnqueuer {
 	public function add_css_scripts() {
 		$scripts = [];
 
-		// $scripts['drectorist-migrator-admin-main-style'] = [
+		// $scripts['connections-to-directorist-migrator-admin-main-style'] = [
 		// 	'file_name' => 'admin-main',
-		// 	'base_path' => DRECTORIST_MIGRATOR_CSS_PATH,
+		// 	'base_path' => CONNECTIONS_TO_DIRECTORIST_MIGRATOR_CSS_PATH,
 		// 	'deps'      => [],
 		// 	'ver'       => $this->script_version,
 		// 	'group'     => 'admin',
 		// ];
 
-		// $scripts['drectorist-migrator-admin-main-style'] = [
+		// $scripts['connections-to-directorist-migrator-admin-main-style'] = [
 		// 	'file_name' => 'admin-main',
-		// 	'base_path' => DRECTORIST_MIGRATOR_CSS_PATH,
+		// 	'base_path' => CONNECTIONS_TO_DIRECTORIST_MIGRATOR_CSS_PATH,
 		// 	'deps'      => [],
 		// 	'ver'       => $this->script_version,
 		// 	'group'     => 'admin',
 		// ];
 
-		$scripts['drectorist-migrator-listings-importer-style'] = [
+		$scripts['connections-to-directorist-migrator-listings-importer-style'] = [
 			'file_name' => 'listings-importer',
-			'base_path' => DRECTORIST_MIGRATOR_CSS_PATH,
+			'base_path' => CONNECTIONS_TO_DIRECTORIST_MIGRATOR_CSS_PATH,
 			'deps'      => [],
 			'ver'       => $this->script_version,
 			'group'     => 'admin',
@@ -68,25 +68,25 @@ class AdminAsset extends AssetEnqueuer {
 	public function add_js_scripts() {
 		$scripts = [];
 
-		// $scripts['drectorist-migrator-admin-main-script'] = [
+		// $scripts['connections-to-directorist-migrator-admin-main-script'] = [
 		// 	'file_name'     => 'admin-main',
-		// 	'base_path'     => DRECTORIST_MIGRATOR_JS_PATH,
+		// 	'base_path'     => CONNECTIONS_TO_DIRECTORIST_MIGRATOR_JS_PATH,
 		// 	'deps'          => '',
 		// 	'ver'           => $this->script_version,
 		// 	'group'         => 'admin',
 		// ];
 
-		// $scripts['drectorist-migrator-admin-main-script'] = [
+		// $scripts['connections-to-directorist-migrator-admin-main-script'] = [
 		// 	'file_name' => 'admin-main',
-		// 	'base_path' => DRECTORIST_MIGRATOR_JS_PATH,
+		// 	'base_path' => CONNECTIONS_TO_DIRECTORIST_MIGRATOR_JS_PATH,
 		// 	'deps'      => '',
 		// 	'ver'       => $this->script_version,
 		// 	'group'     => 'admin',
 		// ];
 
-		$scripts['drectorist-migrator-listings-importer'] = [
+		$scripts['connections-to-directorist-migrator-listings-importer'] = [
 			'file_name' => 'listings-importer',
-			'base_path' => DRECTORIST_MIGRATOR_JS_PATH,
+			'base_path' => CONNECTIONS_TO_DIRECTORIST_MIGRATOR_JS_PATH,
 			'deps'      => '',
 			'ver'       => $this->script_version,
 			'group'     => 'admin',
