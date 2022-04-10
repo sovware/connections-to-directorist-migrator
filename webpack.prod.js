@@ -45,7 +45,7 @@ const prodConfig = {
               { source: './vendor', destination: './__build/connections-to-directorist-migrator/connections-to-directorist-migrator/vendor' },
               { source: './view', destination: './__build/connections-to-directorist-migrator/connections-to-directorist-migrator/view' },
               { source: './*.php', destination: './__build/connections-to-directorist-migrator/connections-to-directorist-migrator' },
-              { source: './readme.txt', destination: './__build/connections-to-directorist-migrator/connections-to-directorist-migrator' },
+              { source: './*.txt', destination: './__build/connections-to-directorist-migrator/connections-to-directorist-migrator' },
             ],
           },
           {
