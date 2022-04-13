@@ -19,7 +19,6 @@
  * Text Domain:       connections-to-directorist-migrator
  * License:           GPL v2 or later
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Update URI:        https://github.com/sovware/connections-to-directorist-migrator
  */
 
 require dirname( __FILE__ ) . '/vendor/autoload.php';

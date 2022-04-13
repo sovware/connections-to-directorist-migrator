@@ -15,7 +15,7 @@ class Listings_Importer_Template_Override {
         add_filter( 'directorist_listings_importer_body_template', [ $this, 'listings_importer_body_template_step_1' ], 20, 2 );
         add_filter( 'directorist_listings_importer_body_template', [ $this, 'listings_importer_body_template_step_2' ], 20, 2 );
         add_filter( 'directorist_listings_import_form_submit_redirect_params', [ $this, 'listings_import_form_submit_redirect_params' ], 20, 2 );
-        
+
     }
 
     /**
@@ -267,7 +267,7 @@ class Listings_Importer_Template_Override {
      * @return string
      */
     public function get_current_listing_import_source_type() {
-        return isset( $_REQUEST['listing-import-source-type'] ) ? $_REQUEST['listing-import-source-type']: 'csv-file';
+        return isset( $_REQUEST['listing-import-source-type'] ) ? esc_attr( $_REQUEST['listing-import-source-type'] ) : 'csv-file';
     }
 
     /**
@@ -276,7 +276,7 @@ class Listings_Importer_Template_Override {
      * @return string
      */
     public function get_current_listing_import_source() {
-        return isset( $_REQUEST['listing-import-source'] ) ? $_REQUEST['listing-import-source'] : '';
+        return isset( $_REQUEST['listing-import-source'] ) ? esc_attr( $_REQUEST['listing-import-source'] ) : '';
     }
 
 }
