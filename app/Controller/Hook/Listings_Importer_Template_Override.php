@@ -12,7 +12,7 @@ class Listings_Importer_Template_Override {
     public function __construct() {
 
         add_filter( 'directorist_listings_importer_header_nav_menu', [ $this, 'listings_importer_header_nav_menu' ], 20, 2 );
-        add_filter( 'directorist_listings_importer_body_template', [ $this, 'listings_importer_body_template_step_1' ], 20, 2 );
+        // add_filter( 'directorist_listings_importer_body_template', [ $this, 'listings_importer_body_template_step_1' ], 20, 2 );
         add_filter( 'directorist_listings_importer_body_template', [ $this, 'listings_importer_body_template_step_2' ], 20, 2 );
         add_filter( 'directorist_listings_import_form_submit_redirect_params', [ $this, 'listings_import_form_submit_redirect_params' ], 20, 2 );
 

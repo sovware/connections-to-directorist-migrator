@@ -18,6 +18,7 @@ class Init {
         return [
             Listings_Importer::class,
             Listings_Importer_Template_Override::class,
+            Settings_Panel::class,
         ];
     }
 
