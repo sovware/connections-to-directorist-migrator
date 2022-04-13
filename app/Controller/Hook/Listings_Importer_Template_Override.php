@@ -267,7 +267,7 @@ class Listings_Importer_Template_Override {
      * @return string
      */
     public function get_current_listing_import_source_type() {
-        return isset( $_REQUEST['listing-import-source-type'] ) ? esc_attr( $_REQUEST['listing-import-source-type'] ) : 'csv-file';
+        return isset( $_REQUEST['listing-import-source-type'] ) ? sanitize_text_field( $_REQUEST['listing-import-source-type'] ) : 'csv-file';
     }
 
     /**
@@ -276,7 +276,7 @@ class Listings_Importer_Template_Override {
      * @return string
      */
     public function get_current_listing_import_source() {
-        return isset( $_REQUEST['listing-import-source'] ) ? esc_attr( $_REQUEST['listing-import-source'] ) : '';
+        return isset( $_REQUEST['listing-import-source'] ) ? sanitize_text_field( $_REQUEST['listing-import-source'] ) : '';
     }
 
 }
