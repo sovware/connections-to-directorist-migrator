@@ -1,5 +1,7 @@
 <?php defined( 'ABSPATH' ) || exit; ?>
 
+<?php do_action( 'directorist_before_listings_importer_data_map_table' ) ; ?> 
+
 <table class="widefat atbdp-importer-mapping-table">
     <thead>
         <tr>
@@ -40,3 +42,5 @@
         endif; ?>
     </tbody>
 </table>
+
+<?php do_action( 'directorist_after_listings_importer_data_map_table' ) ; ?> 
