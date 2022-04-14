@@ -98,7 +98,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _scss_admin_admin_style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../scss/admin/admin-style.scss */ "./assets/src/scss/admin/admin-style.scss");
 /* harmony import */ var _scss_admin_admin_style_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_scss_admin_admin_style_scss__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _global_global_main__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../global/global-main */ "./assets/src/js/global/global-main.js");
-/* harmony import */ var _module_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./module/index */ "./assets/src/js/admin/module/index.js");
+/* harmony import */ var _service_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./service/index */ "./assets/src/js/admin/service/index.js");
 // CSS
  // JS
 
@@ -107,39 +107,39 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./assets/src/js/admin/module/index.js":
-/*!*********************************************!*\
-  !*** ./assets/src/js/admin/module/index.js ***!
-  \*********************************************/
+/***/ "./assets/src/js/admin/service/index.js":
+/*!**********************************************!*\
+  !*** ./assets/src/js/admin/service/index.js ***!
+  \**********************************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _integration_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./integration/index */ "./assets/src/js/admin/module/integration/index.js");
+/* harmony import */ var _integration_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./integration/index */ "./assets/src/js/admin/service/integration/index.js");
 
 
 /***/ }),
 
-/***/ "./assets/src/js/admin/module/integration/connections/index.js":
-/*!*********************************************************************!*\
-  !*** ./assets/src/js/admin/module/integration/connections/index.js ***!
-  \*********************************************************************/
+/***/ "./assets/src/js/admin/service/integration/connections/index.js":
+/*!**********************************************************************!*\
+  !*** ./assets/src/js/admin/service/integration/connections/index.js ***!
+  \**********************************************************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _listings_import__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./listings-import */ "./assets/src/js/admin/module/integration/connections/listings-import.js");
+/* harmony import */ var _listings_import__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./listings-import */ "./assets/src/js/admin/service/integration/connections/listings-import.js");
 /* harmony import */ var _listings_import__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_listings_import__WEBPACK_IMPORTED_MODULE_0__);
 
 
 /***/ }),
 
-/***/ "./assets/src/js/admin/module/integration/connections/listings-import.js":
-/*!*******************************************************************************!*\
-  !*** ./assets/src/js/admin/module/integration/connections/listings-import.js ***!
-  \*******************************************************************************/
+/***/ "./assets/src/js/admin/service/integration/connections/listings-import.js":
+/*!********************************************************************************!*\
+  !*** ./assets/src/js/admin/service/integration/connections/listings-import.js ***!
+  \********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -172,16 +172,16 @@ function init() {
 
 /***/ }),
 
-/***/ "./assets/src/js/admin/module/integration/index.js":
-/*!*********************************************************!*\
-  !*** ./assets/src/js/admin/module/integration/index.js ***!
-  \*********************************************************/
+/***/ "./assets/src/js/admin/service/integration/index.js":
+/*!**********************************************************!*\
+  !*** ./assets/src/js/admin/service/integration/index.js ***!
+  \**********************************************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _connections_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./connections/index */ "./assets/src/js/admin/module/integration/connections/index.js");
+/* harmony import */ var _connections_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./connections/index */ "./assets/src/js/admin/service/integration/connections/index.js");
 
 
 /***/ }),

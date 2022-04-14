@@ -14,36 +14,8 @@ class Listings_Importer_Template_Override {
      */
     public function __construct() {
 
-        add_filter( 'directorist_migrator_directory_source_list', [ $this, 'migrator_directory_source_list' ], 20, 1 );
         add_filter( 'directorist_migrator_total_importing_listings', [ $this, 'total_importing_listings' ], 20, 2 );
         add_filter( 'directorist_migrator_importing_listings_data_map', [ $this, 'importing_listings_data_map' ], 20, 2 );
-        add_action( 'directorist_migrator_after_listing_source_selection_other_import_tab_content', [ $this, 'after_listing_source_selection_other_import_tab_content' ], 20, 1 );
-        add_filter( 'directorist_listings_import_form_submit_redirect_params', [ $this, 'listings_import_form_submit_redirect_params' ], 20, 2 );
-
-    }
-
-    /**
-     * Listings Import Form Submit Redirect Params
-     * 
-     * @param array $params
-     * 
-     * @return array $params
-     */
-    public function listings_import_form_submit_redirect_params( $params = [] ) {
-
-        $params['is-preferred-only'] = $this->get_var_is_preferred_only();
-        
-        return $params;
-    }
-
-    /**
-     * Is preferred only
-     * 
-     * 
-     */
-    public function get_var_is_preferred_only() {
-
-        return ( ! empty( $_REQUEST['is-preferred-only'] ) ) ? '1' : '0';
 
     }
 
@@ -105,33 +77,15 @@ class Listings_Importer_Template_Override {
 
     }
 
-
     /**
-     * Migrator Directory Source List
+     * Is preferred only
      * 
-     * @param array $source_list
-     * @return array $source_list
-     */
-    public function migrator_directory_source_list( $directory_source_list = [] ) {
-
-        $directory_source = [];
-        $directory_source['value'] = DIRECTORIST_MIGRATOR_INTEGRATION_CONNECTIONS_ID; 
-        $directory_source['label'] = __( 'Connections', 'directorist-migrator' ); 
-        $directory_source_list[] = $directory_source;
-
-        return $directory_source_list;
-
-    }
-
-    /**
-     * After Listing Source Selection Other Import Tab Content
      * 
-     * @param array $template_data
      */
-    public function after_listing_source_selection_other_import_tab_content( $template_data ) {
+    public function get_var_is_preferred_only() {
 
-        connections_to_directorist_migrator_connetions_get_the_view( 'form-fields/is-preferred-only-field', $template_data );
-        
+        return ( ! empty( $_REQUEST['is-preferred-only'] ) ) ? '1' : '0';
+
     }
 
 }

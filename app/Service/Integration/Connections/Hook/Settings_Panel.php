@@ -2,6 +2,8 @@
 
 namespace Connections_To_Directorist_Migrator\Service\Integration\Connections\Hook;
 
+use Connections_To_Directorist_Migrator\Helper\Links;
+
 class Settings_Panel {
 
     /**
@@ -12,7 +14,7 @@ class Settings_Panel {
     public function __construct() {
 
         add_filter( 'atbdp_listing_type_settings_field_list', [ $this, 'extend_settings_panel_fields' ] );
-        add_filter( 'atbdp_extension_settings_submenu', [ $this, 'extend_settings_panel_sections' ] );
+        add_filter( 'atbdp_tools_submenu', [ $this, 'extend_settings_panel_sections' ] );
         
     }
 
@@ -27,8 +29,8 @@ class Settings_Panel {
         $fields[ 'new_field' ] = [
             'type'            => 'button',
             'label'           => __( 'Import Listings', 'directorist' ),
-            'button-label'    => __( 'Run Importer', 'directorist' ),
-            'url'             => admin_url( 'edit.php?post_type=at_biz_dir&page=tools&step=2&file&delimiter=%2C&listing-import-source-type=other&listing-import-source=connections' ),
+            'button-label'    => __( 'Run Migrator', 'directorist' ),
+            'url'             => Links::get_listings_migration_mapping_page_url(),
             'open-in-new-tab' => true,
         ];
 
@@ -45,7 +47,7 @@ class Settings_Panel {
 
         $sections['new_section'] = [
             'label' => __('Connections to Directorist Migration', 'directorist'),
-            'icon' => '<i class="fa fa-home"></i>',
+            'icon' => '<i class="fas fa-sync-alt"></i>',
             'sections' => [
                 'general_settings' => [
                     'fields' => [

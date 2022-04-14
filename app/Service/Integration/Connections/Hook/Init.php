@@ -19,6 +19,7 @@ class Init {
             Listings_Importer::class,
             Listings_Importer_Template_Override::class,
             Settings_Panel::class,
+            Add_Migration_Links::class,
         ];
     }
 

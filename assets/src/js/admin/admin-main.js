@@ -3,4 +3,4 @@ import './../../scss/admin/admin-style.scss';
 
 // JS
 import './../global/global-main';
-import './module/index';
+import './service/index';

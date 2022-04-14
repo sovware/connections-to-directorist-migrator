@@ -2,6 +2,8 @@
 
 namespace Connections_To_Directorist_Migrator\Controller\Asset;
 
+use Connections_To_Directorist_Migrator\Service;
+
 class AdminAsset extends AssetEnqueuer {
 	
 	/**
@@ -87,10 +89,17 @@ class AdminAsset extends AssetEnqueuer {
 		$scripts['connections-to-directorist-migrator-listings-importer'] = [
 			'file_name' => 'listings-importer',
 			'base_path' => CONNECTIONS_TO_DIRECTORIST_MIGRATOR_JS_PATH,
-			'deps'      => '',
 			'ver'       => $this->script_version,
 			'group'     => 'admin',
 			'page'      => [ 'posts_page_tools', 'at_biz_dir_page_tools' ],
+		];
+
+		$scripts['connections-to-directorist-migrator-service-integration-connections-all-listings-page'] = [
+			'file_name' => 'service-integration-connections-all-listings-page',
+			'base_path' => CONNECTIONS_TO_DIRECTORIST_MIGRATOR_JS_PATH,
+			'ver'       => $this->script_version,
+			'group'     => 'admin',
+			'enqueue'   => false,
 		];
 
 		$scripts = array_merge( $this->js_scripts, $scripts);

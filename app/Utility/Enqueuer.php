@@ -146,11 +146,7 @@ abstract class Enqueuer {
 			return true;
 		}
 
-		if ( ( isset( $script_args['enable'] ) && false === $script_args['enable'] ) ) {
-			return false;
-		}
-
-		if ( ! empty( $script_args['section'] ) ) {
+		if ( ( isset( $script_args['enqueue'] ) && false === $script_args['enqueue'] ) ) {
 			return false;
 		}
 
@@ -187,34 +183,22 @@ abstract class Enqueuer {
 	public function add_localize_data_to_script( $handle, $script_args ) {
 
 		if ( ! is_array( $script_args ) ) { return; }
-		if ( empty( $script_args['localize_data'] ) ) { return false; }
+		if ( empty( $script_args['data'] ) ) { return; }
 
-		if ( $this->is_assoc_array( $script_args['localize_data'] ) ) {
-			if ( ! $this->has_valid_localize_data( $script_args['localize_data'] ) ) {
-				return;
-			}
+		foreach ( $script_args['data'] as $key => $value ) {
+			
+			wp_localize_script( $handle, $key, $value );
 
-			wp_localize_script( $handle, $script_args['localize_data']['object_name'], $script_args['localize_data']['data'] );
-			return;
-		}
-
-		foreach ( $script_args['localize_data'] as $script_args_item ) {
-
-			if ( ! $this->has_valid_localize_data( $script_args_item ) ) {
-				return;
-			}
-
-			wp_localize_script( $handle, $script_args_item['object_name'], $script_args_item['data'] );
 		}
 	}
 
 	// has_valid_localize_data
 	public function has_valid_localize_data( array $localize_data = [] ) {
 
-		if ( empty( $localize_data['object_name'] ) ) { return false; }
-		if ( ! is_string( $localize_data['object_name'] ) ) { return false; }
-		if ( empty( $localize_data['data'] ) ) { return false; }
-		if ( ! is_array(  $localize_data['data'] ) ) { return false; }
+		if ( empty( $localize_data['key'] ) ) { return false; }
+		if ( ! is_string( $localize_data['key'] ) ) { return false; }
+		if ( empty( $localize_data['value'] ) ) { return false; }
+		if ( ! is_array(  $localize_data['value'] ) ) { return false; }
 
 		return true;
 	}
