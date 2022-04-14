@@ -18,6 +18,11 @@ class Add_Migration_Links {
         
     }
 
+    /**
+     * Add Migration Link To All Listings Page
+     * 
+     * @return void
+     */
     public function add_migration_link_to_all_listings_page() {
 
         global $post_type_object;
