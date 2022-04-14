@@ -52,9 +52,10 @@ class Listings_Importer_Template_Override {
             $listings_data_map['fields'] = [];
         }
 
-        $template_data['controller']        = $this;
-        $template_data['total_listings']    = $total_listings;
-        $template_data['listings_data_map'] = $listings_data_map;
+        $template_data['controller']         = $this;
+        $template_data['total_listings']     = $total_listings;
+        $template_data['documentation_link'] = 'https://directorist.com/documentation/extensions';
+        $template_data['listings_data_map']  = $listings_data_map;
 
         return connections_to_directorist_migrator_get_view( 'listings-importer/body-templates/step-2', $template_data, false );
     }

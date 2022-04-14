@@ -6,6 +6,10 @@
 			<header>
                 <h2><?php esc_html_e('Map fields to listings', 'directorist'); ?></h2>
 				<p><?php esc_html_e('Select Directorist fields to map it against your listings fields, leave it as "Do not import" to skip certain fields.', 'directorist'); ?></p>
+
+				<p>
+					<a target="_blank" href="<?php echo esc_attr( $data['documentation_link'] ) ?>"><?php esc_html_e( 'Need Help?', 'connections-to-directorist-migrator' ); ?></a>
+				</p>
 			</header>
 
 			<div class="form-content">
