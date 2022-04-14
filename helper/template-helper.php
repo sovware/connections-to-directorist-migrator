@@ -117,3 +117,56 @@ function connections_to_directorist_migrator_include_dir_files( $dir_path = '' )
         include $dir_path . $file;
     }
 }
+
+/**
+ * Connections To Directorist Migrator Maybe Selected
+ * 
+ * @param mixed $value_1
+ * @param mixed $value_2
+ * @return string
+ */
+function c2dm_maybe_selected_importing_listings_map_field( $listing_field_key, $map_field_key ) {
+
+    $map = [];
+
+    $map['ts']             = 'publish_date';
+    $map['categories']     = 'category';
+    $map['listing_status'] = 'listing_status';
+    $map['title']          = 'listing_title';
+    $map['bio']            = 'listing_content';
+    $map['social']         = 'social';
+    $map['image']          = 'listing_img';
+    
+    $map['links_[item_0_key_address]'] = 'website';
+    $map['email_[item_0_key_address]'] = 'email';
+
+    $map['phone_numbers_[item_0_key_number]'] = 'phone';
+    $map['phone_numbers_[item_1_key_number]'] = 'phone2';
+
+    $map['addresses_[item_0_key_line_1]']    = 'address';
+    $map['addresses_[item_0_key_zipcode]']   = 'zip';
+    $map['addresses_[item_0_key_latitude]']  = 'manual_lat';
+    $map['addresses_[item_0_key_longitude]'] = 'manual_lng';
+
+    $map = apply_filters( 'connections_to_directorist_migrator_listings_field_map', $map, $listing_field_key, $map_field_key );
+
+
+    if ( empty( $map[ $listing_field_key ] ) ) {
+        return '';
+    }
+
+    $field_key = $map[ $listing_field_key ];
+
+    echo ( $field_key === $map_field_key ) ? 'selected' : '';
+}
+
+/**
+ * Connections To Directorist Migrator Maybe Selected
+ * 
+ * @param mixed $value_1
+ * @param mixed $value_2
+ * @return string
+ */
+function c2dm_maybe_selected( $value_1, $value_2 ) {
+    echo ( $value_1 === $value_2 ) ? 'selected' : '';
+}

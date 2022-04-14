@@ -31,7 +31,7 @@
                         <select class="atbdp_map_to" name="<?php echo esc_attr( $header_label ); ?>">
                             <option value=""><?php esc_html_e('Do not import', 'directorist'); ?></option>
                             <?php foreach ( $data['fields'] as $key => $value ) : ?>
-                                <option value="<?php echo esc_attr( $key ); ?>">
+                                <option value="<?php echo esc_attr( $key ); ?>" <?php c2dm_maybe_selected_importing_listings_map_field( $header_label, $key ); ?>>
                                     <?php echo esc_html( $value ); ?>
                                 </option>
                             <?php endforeach ?>
