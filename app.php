@@ -10,6 +10,12 @@ final class Connections_To_Directorist_Migrator {
 
     private function __construct() {
 
+        // Check Compatibility
+        if ( version_compare( ATBDP_VERSION, '7.2.1', '<' ) ) {
+            add_action( 'admin_notices', [ $this, 'show_incompatibility_notice' ], 1, 1 );
+            return;
+        }
+
         // Register Controllers
         $controllers = $this->get_controllers();
         Helper\Serve::register_services( $controllers );
@@ -31,8 +37,21 @@ final class Connections_To_Directorist_Migrator {
         ];
     }
 
-    public function directorist_listings_import_template( $content, $step ) {
-        return $content;
+    /**
+	 * Show Incompatibility Notice
+	 * 
+     * @return void
+	 */
+    public function show_incompatibility_notice() {
+        $title   = __( 'Directorist Update is Incomplete', 'connections-to-directorist-migrator' );
+        $message = __( '<b>Connections to Directorist Migrator</b> extension requires <b>Directorist 7.2.1</b> or higher to work', 'connections-to-directorist-migrator' );
+
+        ?>
+        <div class="notice notice-error">
+            <h3><?php echo $title; ?></h3>
+            <p><?php echo $message; ?></p>
+        </div>
+        <?php
     }
 
     public function __clone() {
