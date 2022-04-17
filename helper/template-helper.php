@@ -132,7 +132,7 @@ function c2dm_maybe_selected_importing_listings_map_field( $listing_field_key, $
     $map['ts']             = 'publish_date';
     $map['categories']     = 'category';
     $map['listing_status'] = 'listing_status';
-    $map['title']          = 'listing_title';
+    $map['full_name']      = 'listing_title';
     $map['bio']            = 'listing_content';
     $map['social']         = 'social';
     $map['image']          = 'listing_img';
