@@ -8,6 +8,11 @@ final class Connections_To_Directorist_Migrator {
 
     private static $instance;
 
+    /**
+     * Constructor
+     * 
+     * @return void
+     */
     private function __construct() {
 
         // Check Compatibility
@@ -16,12 +21,20 @@ final class Connections_To_Directorist_Migrator {
             return;
         }
 
+        // Load Textdomain
+        add_action('plugins_loaded', [ $this, 'load_textdomain' ] );
+
         // Register Controllers
         $controllers = $this->get_controllers();
         Helper\Serve::register_services( $controllers );
 
     }
 
+    /**
+     * Get Instance
+     * 
+     * @return Connections_To_Directorist_Migrator
+     */
     public static function get_instance() {
         if ( self::$instance === null ) {
             self::$instance = new Connections_To_Directorist_Migrator();
@@ -30,6 +43,11 @@ final class Connections_To_Directorist_Migrator {
         return self::$instance;
     }
 
+    /**
+     * Get Controllers
+     * 
+     * @return array Controllers
+     */
     protected function get_controllers() {
         return [
             Controller\Init::class,
@@ -54,13 +72,30 @@ final class Connections_To_Directorist_Migrator {
         <?php
     }
 
+    /**
+     * Load Text Domain
+     * 
+     * @return void
+     */
+    public function load_textdomain() {
+        load_plugin_textdomain( 'connections-to-directorist-migrator', false, CONNECTIONS_TO_DIRECTORIST_MIGRATOR_LANGUAGE_DIR );
+    }
+
+    /**
+     * Cloning instances of the class is forbidden.
+     * 
+     * @return void
+     */
     public function __clone() {
-		// Cloning instances of the class is forbidden.
 		_doing_it_wrong( __FUNCTION__, __('Cheatin&#8217; huh?', 'connections-to-directorist-migrator'), '1.0' );
 	}
 
+    /**
+     * Unserializing instances of the class is forbidden.
+     * 
+     * @return void
+     */
 	public function __wakeup() {
-		// Unserializing instances of the class is forbidden.
 		_doing_it_wrong( __FUNCTION__, __('Cheatin&#8217; huh?', 'connections-to-directorist-migrator'), '1.0' );
 	}
 
