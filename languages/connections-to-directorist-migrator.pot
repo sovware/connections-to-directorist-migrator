@@ -21,15 +21,15 @@ msgstr ""
 msgid "Start Migrating"
 msgstr ""
 
-#: ../app.php:46
+#: ../app.php:64
 msgid "Directorist Update is Incomplete"
 msgstr ""
 
-#: ../app.php:47
+#: ../app.php:65
 msgid "<b>Connections to Directorist Migrator</b> extension requires <b>Directorist 7.2.1</b> or higher to work"
 msgstr ""
 
-#: ../app.php:59, ../app.php:64
+#: ../app.php:90, ../app.php:99
 msgid "Cheatin&#8217; huh?"
 msgstr ""
 
