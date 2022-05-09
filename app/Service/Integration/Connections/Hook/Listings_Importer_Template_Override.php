@@ -67,8 +67,8 @@ class Listings_Importer_Template_Override {
             return [];
         }
         
-        $importable_fields = Listings_Data_Helper::get_importable_fields_map();
-        $listings_data_map['headers'] = $importable_fields;
+        $importable_fields_map = Listings_Data_Helper::get_importable_fields_map();
+        $listings_data_map['headers'] = $importable_fields_map;
         
         return $listings_data_map;
 

@@ -74,23 +74,32 @@ class Listings_Data_Helper {
         }
 
         for( $i = 0; $i < $count; $i++ ) {
-            $fields_map['addresses_[item_'. $i .'_key_id]']          = null;
-            $fields_map['addresses_[item_'. $i .'_key_type]']        = null;
-            $fields_map['addresses_[item_'. $i .'_key_visibility]']  = null;
-            $fields_map['addresses_[item_'. $i .'_key_order]']       = null;
-            $fields_map['addresses_[item_'. $i .'_key_preferred]']   = null;
-            $fields_map['addresses_[item_'. $i .'_key_line_1]']      = null;
-            $fields_map['addresses_[item_'. $i .'_key_line_2]']      = null;
-            $fields_map['addresses_[item_'. $i .'_key_line_3]']      = null;
-            $fields_map['addresses_[item_'. $i .'_key_line_4]']      = null;
-            $fields_map['addresses_[item_'. $i .'_key_district]']    = null;
-            $fields_map['addresses_[item_'. $i .'_key_county]']      = null;
-            $fields_map['addresses_[item_'. $i .'_key_locality]']    = null;
-            $fields_map['addresses_[item_'. $i .'_key_region]']      = null;
-            $fields_map['addresses_[item_'. $i .'_key_postal_code]'] = null;
-            $fields_map['addresses_[item_'. $i .'_key_country]']     = null;
-            $fields_map['addresses_[item_'. $i .'_key_latitude]']    = null;
-            $fields_map['addresses_[item_'. $i .'_key_longitude]']   = null;
+            $fields_map['addresses_[item_'. $i .'_key_id]']            = null;
+            $fields_map['addresses_[item_'. $i .'_key_type]']          = null;
+            $fields_map['addresses_[item_'. $i .'_key_visibility]']    = null;
+            $fields_map['addresses_[item_'. $i .'_key_order]']         = null;
+            $fields_map['addresses_[item_'. $i .'_key_preferred]']     = null;
+            $fields_map['addresses_[item_'. $i .'_key_line_1]']        = null;
+            $fields_map['addresses_[item_'. $i .'_key_line_2]']        = null;
+            $fields_map['addresses_[item_'. $i .'_key_line_3]']        = null;
+            $fields_map['addresses_[item_'. $i .'_key_line_4]']        = null;
+            $fields_map['addresses_[item_'. $i .'_key_district]']      = null;
+            $fields_map['addresses_[item_'. $i .'_key_county]']        = null;
+            $fields_map['addresses_[item_'. $i .'_key_locality]']      = null;
+            $fields_map['addresses_[item_'. $i .'_key_region]']        = null;
+            $fields_map['addresses_[item_'. $i .'_key_postal_code]']   = null;
+            $fields_map['addresses_[item_'. $i .'_key_country]']       = null;
+            $fields_map['addresses_[item_'. $i .'_key_latitude]']      = null;
+            $fields_map['addresses_[item_'. $i .'_key_longitude]']     = null;
+            $fields_map['addresses_[item_'. $i .'_key_name]']          = null;
+            $fields_map['addresses_[item_'. $i .'_key_address_line1]'] = null;
+            $fields_map['addresses_[item_'. $i .'_key_address_line2]'] = null;
+            $fields_map['addresses_[item_'. $i .'_key_line_one]']      = null;
+            $fields_map['addresses_[item_'. $i .'_key_line_two]']      = null;
+            $fields_map['addresses_[item_'. $i .'_key_line_three]']    = null;
+            $fields_map['addresses_[item_'. $i .'_key_city]']     = null;
+            $fields_map['addresses_[item_'. $i .'_key_state]']    = null;
+            $fields_map['addresses_[item_'. $i .'_key_zipcode]']  = null;
         }
 
     }
@@ -165,7 +174,7 @@ class Listings_Data_Helper {
             $fields_map['im_[item_'. $i .'_key_visibility]'] = null;
             $fields_map['im_[item_'. $i .'_key_order]']      = null;
             $fields_map['im_[item_'. $i .'_key_preferred]']  = null;
-            $fields_map['im_[item_'. $i .'_key_uuid]']       = null;
+            $fields_map['im_[item_'. $i .'_key_uid]']       = null;
         }
 
     }
@@ -233,7 +242,7 @@ class Listings_Data_Helper {
      * @param object $fields
      * @return array Fields
      */
-    public static function get_importable_fields( $all_fields, $prefered_only_when_has_multiple_item = true ) {
+    public static function get_importable_fields( $all_fields, $prefered_only_when_has_multiple_item = false ) {
 
         $importable_fields = [];
 
