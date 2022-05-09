@@ -66,11 +66,8 @@ class Listings_Importer_Template_Override {
         if ( empty( $listings ) ) {
             return [];
         }
-
-        $is_preferred_only = $this->get_var_is_preferred_only();
-        $is_preferred_only = ( ! empty( $is_preferred_only ) ) ? true : false;
         
-        $importable_fields = Listings_Data_Helper::get_importable_fields( $listings[0], $is_preferred_only );
+        $importable_fields = Listings_Data_Helper::get_importable_fields_map();
         $listings_data_map['headers'] = $importable_fields;
         
         return $listings_data_map;

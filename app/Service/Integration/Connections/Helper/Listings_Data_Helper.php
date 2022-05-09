@@ -2,7 +2,230 @@
 
 namespace Connections_To_Directorist_Migrator\Service\Integration\Connections\Helper;
 
+use Connections_To_Directorist_Migrator\Service\Integration\Connections\Model\Listings_Model;
+
 class Listings_Data_Helper {
+
+    /**
+     * Get importable fields map
+     * 
+     * @return array Fields
+     */
+    public static function get_importable_fields_map() {
+        $fields_map = [];
+
+        $fields_map['full_name']          = null;
+        $fields_map['categories']         = null;
+        $fields_map['id']                 = null;
+        $fields_map['ts']                 = null;
+        $fields_map['date_added']         = null;
+        $fields_map['ordo']               = null;
+        $fields_map['entry_type']         = null;
+        $fields_map['listing_status']     = null;
+        $fields_map['visibility']         = null;
+        $fields_map['slug']               = null;
+        $fields_map['family_name']        = null;
+        $fields_map['honorific_prefix']   = null;
+        $fields_map['first_name']         = null;
+        $fields_map['middle_name']        = null;
+        $fields_map['last_name']          = null;
+        $fields_map['honorific_suffix']   = null;
+        $fields_map['title']              = null;
+        $fields_map['organization']       = null;
+        $fields_map['department']         = null;
+        $fields_map['contact_first_name'] = null;
+        $fields_map['contact_last_name']  = null;
+        $fields_map['social']             = [];
+        $fields_map['birthday']           = null;
+        $fields_map['anniversary']        = null;
+        $fields_map['bio']                = null;
+        $fields_map['notes']              = null;
+        $fields_map['excerpt']            = null;
+        $fields_map['logo']               = null;
+        $fields_map['image']              = null;
+        $fields_map['added_by']           = null;
+        $fields_map['edited_by']          = null;
+        $fields_map['owner']              = null;
+        $fields_map['user']               = null;
+        $fields_map['status']             = null;
+        $fields_map['sort_column']        = null;
+
+        self::attach_listings_addresses_fields( $fields_map );
+        self::attach_listings_phone_numbers_fields( $fields_map );
+        self::attach_listings_email_fields( $fields_map );
+        self::attach_listings_im_fields( $fields_map );
+        self::attach_listings_links_fields( $fields_map );
+        self::attach_listings_dates_fields( $fields_map );
+        
+        return $fields_map;
+    }
+
+    /**
+     * Attach listings addresses fields
+     * 
+     * @param array &$fields_map
+     * @return void
+     */
+    public static function attach_listings_addresses_fields( &$fields_map ) {
+        $count = Listings_Model::get_listings_max_repetitive_fields_count( 'addresses' );
+
+        if ( empty( $count ) ) {
+            return;
+        }
+
+        for( $i = 0; $i < $count; $i++ ) {
+            $fields_map['addresses_[item_'. $i .'_key_id]']          = null;
+            $fields_map['addresses_[item_'. $i .'_key_type]']        = null;
+            $fields_map['addresses_[item_'. $i .'_key_visibility]']  = null;
+            $fields_map['addresses_[item_'. $i .'_key_order]']       = null;
+            $fields_map['addresses_[item_'. $i .'_key_preferred]']   = null;
+            $fields_map['addresses_[item_'. $i .'_key_line_1]']      = null;
+            $fields_map['addresses_[item_'. $i .'_key_line_2]']      = null;
+            $fields_map['addresses_[item_'. $i .'_key_line_3]']      = null;
+            $fields_map['addresses_[item_'. $i .'_key_line_4]']      = null;
+            $fields_map['addresses_[item_'. $i .'_key_district]']    = null;
+            $fields_map['addresses_[item_'. $i .'_key_county]']      = null;
+            $fields_map['addresses_[item_'. $i .'_key_locality]']    = null;
+            $fields_map['addresses_[item_'. $i .'_key_region]']      = null;
+            $fields_map['addresses_[item_'. $i .'_key_postal_code]'] = null;
+            $fields_map['addresses_[item_'. $i .'_key_country]']     = null;
+            $fields_map['addresses_[item_'. $i .'_key_latitude]']    = null;
+            $fields_map['addresses_[item_'. $i .'_key_longitude]']   = null;
+        }
+
+    }
+
+    /**
+     * Attach listings phone numbers fields
+     * 
+     * @param array &$fields_map
+     * @return void
+     */
+    public static function attach_listings_phone_numbers_fields( &$fields_map ) {
+        $count = Listings_Model::get_listings_max_repetitive_fields_count( 'phone_numbers' );
+
+        if ( empty( $count ) ) {
+            return;
+        }
+
+        for( $i = 0; $i < $count; $i++ ) {
+            $fields_map['phone_numbers_[item_'. $i .'_key_id]']         = null;
+            $fields_map['phone_numbers_[item_'. $i .'_key_type]']       = null;
+            $fields_map['phone_numbers_[item_'. $i .'_key_name]']       = null;
+            $fields_map['phone_numbers_[item_'. $i .'_key_visibility]'] = null;
+            $fields_map['phone_numbers_[item_'. $i .'_key_order]']      = null;
+            $fields_map['phone_numbers_[item_'. $i .'_key_preferred]']  = null;
+            $fields_map['phone_numbers_[item_'. $i .'_key_number]']     = null;
+        }
+
+    }
+
+    /**
+     * Attach listings email fields
+     * 
+     * @param array &$fields_map
+     * @return void
+     */
+    public static function attach_listings_email_fields( &$fields_map ) {
+        $count = Listings_Model::get_listings_max_repetitive_fields_count( 'email' );
+
+        if ( empty( $count ) ) {
+            return;
+        }
+
+        for( $i = 0; $i < $count; $i++ ) {
+            $fields_map['email_[item_'. $i .'_key_id]']         = null;
+            $fields_map['email_[item_'. $i .'_key_type]']       = null;
+            $fields_map['email_[item_'. $i .'_key_name]']       = null;
+            $fields_map['email_[item_'. $i .'_key_visibility]'] = null;
+            $fields_map['email_[item_'. $i .'_key_order]']      = null;
+            $fields_map['email_[item_'. $i .'_key_preferred]']  = null;
+            $fields_map['email_[item_'. $i .'_key_address]']    = null;
+        }
+
+    }
+
+    /**
+     * Attach listings messenger fields
+     * 
+     * @param array &$fields_map
+     * @return void
+     */
+    public static function attach_listings_im_fields( &$fields_map ) {
+        $count = Listings_Model::get_listings_max_repetitive_fields_count( 'im' );
+
+        if ( empty( $count ) ) {
+            return;
+        }
+
+        for( $i = 0; $i < $count; $i++ ) {
+            $fields_map['im_[item_'. $i .'_key_id]']         = null;
+            $fields_map['im_[item_'. $i .'_key_type]']       = null;
+            $fields_map['im_[item_'. $i .'_key_name]']       = null;
+            $fields_map['im_[item_'. $i .'_key_visibility]'] = null;
+            $fields_map['im_[item_'. $i .'_key_order]']      = null;
+            $fields_map['im_[item_'. $i .'_key_preferred]']  = null;
+            $fields_map['im_[item_'. $i .'_key_uuid]']       = null;
+        }
+
+    }
+
+    /**
+     * Attach listings links fields
+     * 
+     * @param array &$fields_map
+     * @return void
+     */
+    public static function attach_listings_links_fields( &$fields_map ) {
+        $count = Listings_Model::get_listings_max_repetitive_fields_count( 'links' );
+
+        if ( empty( $count ) ) {
+            return;
+        }
+
+        for( $i = 0; $i < $count; $i++ ) {
+            $fields_map['links_[item_'. $i .'_key_id]']           = null;
+            $fields_map['links_[item_'. $i .'_key_type]']         = null;
+            $fields_map['links_[item_'. $i .'_key_name]']         = null;
+            $fields_map['links_[item_'. $i .'_key_visibility]']   = null;
+            $fields_map['links_[item_'. $i .'_key_order]']        = null;
+            $fields_map['links_[item_'. $i .'_key_preferred]']    = null;
+            $fields_map['links_[item_'. $i .'_key_title]']        = null;
+            $fields_map['links_[item_'. $i .'_key_address]']      = null;
+            $fields_map['links_[item_'. $i .'_key_url]']          = null;
+            $fields_map['links_[item_'. $i .'_key_target]']       = null;
+            $fields_map['links_[item_'. $i .'_key_follow]']       = null;
+            $fields_map['links_[item_'. $i .'_key_followString]'] = null;
+            $fields_map['links_[item_'. $i .'_key_image]']        = null;
+            $fields_map['links_[item_'. $i .'_key_logo]']         = null;
+        }
+
+    }
+
+    /**
+     * Attach listings dates fields
+     * 
+     * @param array &$fields_map
+     * @return void
+     */
+    public static function attach_listings_dates_fields( &$fields_map ) {
+        $count = Listings_Model::get_listings_max_repetitive_fields_count( 'dates' );
+
+        if ( empty( $count ) ) {
+            return;
+        }
+
+        for( $i = 0; $i < $count; $i++ ) {
+            $fields_map['dates_[item_'. $i .'_key_id]']         = null;
+            $fields_map['dates_[item_'. $i .'_key_type]']       = null;
+            $fields_map['dates_[item_'. $i .'_key_name]']       = null;
+            $fields_map['dates_[item_'. $i .'_key_visibility]'] = null;
+            $fields_map['dates_[item_'. $i .'_key_order]']      = null;
+            $fields_map['dates_[item_'. $i .'_key_preferred]']  = null;
+            $fields_map['dates_[item_'. $i .'_key_date]']       = null;
+        }
+
+    }
 
     /**
      * Get importable fields
