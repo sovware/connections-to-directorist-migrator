@@ -41,7 +41,7 @@ That’s it! The migrator will get to work moving the listings data.
 
 == Changelog ==
 
-= 0.1.1 - April 11, 2022 =
+= 0.1.1 - April 12, 2022 =
 
 * Improve - Data mapping
 
