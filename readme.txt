@@ -2,9 +2,9 @@
 Contributors:      wpwax
 Tags:              directory, directorist, directorist migrator, connections
 Requires at least: 5.7
-Tested up to:      5.9
+Tested up to:      6.3
 Requires PHP:      7.0
-Stable tag:        0.1.1
+Stable tag:        0.1.2
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -40,6 +40,10 @@ That’s it! The migrator will get to work moving the listings data.
 3. Use the `Add New` button in the Block Editor toolbar when needed.
 
 == Changelog ==
+
+= 0.1.2 - Aug 21, 2023 =
+
+* Improve - Compatibility with the latest WP and Connections
 
 = 0.1.1 - April 12, 2022 =
 
